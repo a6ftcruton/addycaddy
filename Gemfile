@@ -26,5 +26,5 @@ group :test do
   gem 'capybara', '~> 2.4.3'
   gem 'poltergeist'
  # gem "codeclimate-test-reporter", require: nil
- # gem 'database_cleaner'
+  gem 'database_cleaner'
 end
