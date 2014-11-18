@@ -12,6 +12,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 gem 'postgres-copy', '~> 0.9.0'
+gem 'therubyracer'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-digitalocean'
+gem 'figaro'
 
 
 group :development, :test do
