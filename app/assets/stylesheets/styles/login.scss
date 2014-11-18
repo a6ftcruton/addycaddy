@@ -1,0 +1,35 @@
+.login-body {
+  background: url('bricks-large.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.app-banner {
+  position: absolute;
+  top: -30vh;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(0, 0, 0, .3);
+}
+.login-wrapper {
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 70vh;
+  left: 0;
+  right:0;
+}
+.twitter-login-button {
+  border-radius: 15px;
+  font-size: 1.8rem;
+}
+.fi-social-twitter {
+  font-size: 2rem;
+  position: relative;
+  right: -5%;
+  top: 3px;
+}
+
