@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117205844) do
+ActiveRecord::Schema.define(version: 20141118005509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,30 @@ ActiveRecord::Schema.define(version: 20141117205844) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "crimes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "incident_id"
+    t.integer  "offense_id"
+    t.integer  "offense_code"
+    t.integer  "offense_code_extension"
+    t.integer  "offense_type_id"
+    t.string   "offense_category_id"
+    t.string   "first_occurrence_date"
+    t.string   "last_occurrence_date"
+    t.string   "reported_date"
+    t.string   "incident_address"
+    t.string   "geo_x"
+    t.string   "geo_y"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "district_id"
+    t.string   "precinct_id"
+    t.string   "neighborhood_id"
+    t.integer  "is_crime"
+    t.integer  "is_traffic"
   end
 
 end
