@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20141119032404) do
   end
 
   create_table "crimes", force: true do |t|
-    t.string "offense_type"
-    t.float  "longitude"
-    t.float  "latitude"
-    t.string "date"
+    t.string   "offense_type"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.datetime "date"
   end
 
   create_table "users", force: true do |t|

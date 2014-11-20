@@ -15,8 +15,8 @@
     <%= render partial: 'layouts/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>    
-     <div class="row wrapper">
-      <div class="small-11 small-centered columns"><%= yield %></div>
+     <div class="row wrapper small-12 small-centered">
+      <div class="small-11 small-centered columns comparison-container"><%= yield %></div>
     </div>
     <%= javascript_include_tag "application" %>
   </body>

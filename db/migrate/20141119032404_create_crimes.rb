@@ -4,7 +4,7 @@ class CreateCrimes < ActiveRecord::Migration
       t.string :offense_type
       t.float :longitude
       t.float :latitude
-      t.string :date
+      t.datetime :date
     end
   end
 end

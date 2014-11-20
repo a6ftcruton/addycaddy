@@ -8,6 +8,16 @@
     <%= label_tag :second_address %>
     <%= text_field_tag :second_address, nil, placeholder: "456 Second Address St Denver, CO 80218" %>
   </div>
+    <div class="checkboxes">
+      <h3>Choose Categories to Compare</h3>
+      <div class="switch radius">
+        <%= check_box_tag "query[crime]" %>CRIME
+        <%= label_tag "query[crime]" %>
+        <%= check_box_tag "query[parks]" %>PARKS
+        <%= label_tag "query[parks]" %>
+      </div>
+    </div>
   <%= submit_tag "Compare", class: "button radius round" %>
   <% end %>
 </div>
+  
