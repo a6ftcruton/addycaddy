@@ -1,14 +1,12 @@
-<h1><%= @first_address %></h1>
-<h1><%= @second_address %></h1>
-<%= @queries %>
-<%# raise params.inspect %>
+<h3><%= @first_address %></h3>
 
+<% if @results.crime %>
 <ul>
-  <!-- for each key that comes through in the query params, call associated method -->
-  <%#= @results %>
-  <% Crime.current_year.near(@first_address, 1).each do |crime| %>
-    <li><%= crime.offense_type %></li>
-    <li><%= crime.date %></li>
+  <h5><%= "This year there were #{@results.crime.length} crimes within ___ miles of this address." %></h5>
+  <% @results.crime.each do |crime| %>
+    <li><%= crime.offense_type %>&nbsp<%= crime.date.to_date %></li>
   <% end %>
 </ul>
+<% end %>
 
+<h1><%= @second_address %></h1>

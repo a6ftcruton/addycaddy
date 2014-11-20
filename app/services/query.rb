@@ -1,7 +1,11 @@
 require 'ostruct'
 
 class Query
-  attr_reader :queries, :first_address, :second_address
+  attr_accessor :radius #allow user to change/set search radius
+  attr_reader :results,
+              :queries, 
+              :first_address,
+              :second_address
 
   def initialize(params)
     @results        = OpenStruct.new
@@ -18,9 +22,11 @@ class Query
   end
 
   def crime
-    Crime.current_year.near(@first_address, 1)
+    radius = 0.2
+    Crime.current_year.near(@first_address, radius)
   end
 
   def parks
+    # park methods
   end
 end
