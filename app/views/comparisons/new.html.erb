@@ -1,0 +1,13 @@
+<div class="row">
+  <%= form_tag("/comparisons", method: "get") do %>
+  <div class="small-6 columns">
+    <%= label_tag :first_address %>
+    <%= text_field_tag :first_address, nil, placeholder: "123 First Address St Denver, CO 80206" %>
+  </div>
+  <div class="small-6 columns">
+    <%= label_tag :second_address %>
+    <%= text_field_tag :second_address, nil, placeholder: "456 Second Address St Denver, CO 80218" %>
+  </div>
+  <%= submit_tag "Compare", class: "button radius round" %>
+  <% end %>
+</div>

@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <li><%= "Signed in as #{current_user.name}" %></li>
+  <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
+<% else %>
+  <%= link_to "Sign In With Twitter", user_omniauth_authorize_path(:twitter) %>
+<% end %>
+

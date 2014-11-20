@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-digitalocean'
 gem 'figaro'
+gem 'geocoder'
 
 
 group :development, :test do
