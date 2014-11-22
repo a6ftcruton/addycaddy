@@ -1,4 +1,10 @@
-<h1 class="app-banner">AddyCaddy</h1>
-<%= link_to user_omniauth_authorize_path(:twitter), class: "small-6 small-centered columns button twitter-login-button" do %>Sign In With Twitter
-  <i class="fi-social-twitter"></i>
-<% end %> 
+<body class="login-body">
+  <div class="row login-wrapper">
+    <div class="small-12 small-centered columns">
+      <h1 class="app-banner">Addy Caddy</h1>
+      <%= link_to user_omniauth_authorize_path(:twitter), class: "small-6 small-centered columns button twitter-login-button" do %>Sign In With Twitter
+          <i class="fi-social-twitter"></i>
+        <% end %>
+  </div>
+  <%= javascript_include_tag "application" %>
+</body>
