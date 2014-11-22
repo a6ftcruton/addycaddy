@@ -1,29 +1,27 @@
-<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>    
-     <div class="row wrapper small-12 small-centered">
-       <div class="small-11 small-centered columns comparison-container">
-        <div class="row">
-          <%= form_tag(comparisons_show_path, method: "get") do %>
-          <div class="small-6 columns">
-            <%= label_tag :first_address %>
-            <%= text_field_tag :first_address, nil, placeholder: "123 First Address St Denver, CO 80206" %>
-          </div>
-          <div class="small-6 columns">
-            <%= label_tag :second_address %>
-            <%= text_field_tag :second_address, nil, placeholder: "456 Second Address St Denver, CO 80218" %>
-          </div>
-            <div class="checkboxes">
-              <h3>Choose Categories to Compare</h3>
-              <div class="switch radius">
-                <%= check_box_tag "query[crime]", 1, true %>CRIME
-                <%= label_tag "query[crime]" %>
-                <%= check_box_tag "query[parks]" %>PARKS
-                <%= label_tag "query[parks]" %>
-              </div>
-            </div>
-          <%= submit_tag "Compare", id: "compare", class: "button radius round" %>
-          <% end %>
+  <div class="row wrapper small-12 small-centered">
+    <div class="small-11 small-centered columns comparison-container">
+      <div class="row">
+        <%= form_tag(comparisons_show_path, method: "get") do %>
+        <div class="small-6 columns">
+          <%= label_tag :first_address %>
+          <%= text_field_tag :first_address, nil, placeholder: "123 First Address St Denver, CO 80206" %>
         </div>
-       </div>
+        <div class="small-6 columns">
+          <%= label_tag :second_address %>
+          <%= text_field_tag :second_address, nil, placeholder: "456 Second Address St Denver, CO 80218" %>
+        </div>
+          <div class="checkboxes">
+            <h3>Choose Categories to Compare</h3>
+            <div class="switch radius">
+              <%= check_box_tag "query[crime]", 1, true %>CRIME
+              <%= label_tag "query[crime]" %>
+              <%= check_box_tag "query[parks]" %>PARKS
+              <%= label_tag "query[parks]" %>
+            </div>
+          </div>
+        <%= submit_tag "Compare", id: "compare", class: "button radius round" %>
+        <% end %>
+      </div>
     </div>
- 
+</div>
+
