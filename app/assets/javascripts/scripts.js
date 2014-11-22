@@ -1,10 +1,7 @@
-//('#compare').click(function() {
-// alert("Clicked Button");
-//);
 $(document).ready(function() {
- fadeFlashNotices(); 
+  fadeFlashNotices(); 
  
- function fadeFlashNotices() {
-   $('.flash').hide().delay(400).fadeIn(800).delay(4000).fadeOut(800);
- }
+  function fadeFlashNotices() {
+    $('.alert-box').fadeIn(800).delay(3000).fadeOut(800);
+  }
 });

@@ -13,9 +13,8 @@
 
   <body>
     <%= render partial: 'layouts/navbar' %>
-    <p class="flash notice"><%= notice %></p>
-    <p class="flash alert"><%= alert %></p>    
     <%= yield %>
+    <%= render partial: 'layouts/flash_notices' %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

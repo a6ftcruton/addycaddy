@@ -12,24 +12,13 @@ a {
 li {
   list-style: none !important;
 }
-.notice,
-.warning,
-.error {
-  position: fixed;
-  bottom: 0;
+.alert-box {
+  position: absolute;
+  top: 50px;
   left: 0;
-  right:0;
+  right: 0;
   text-align: center;
   font-size: 1.5rem; 
   font-family: Oswald;
   letter-spacing: 0.1em;
-}
-.notice {
-  background-color: green;
-}
-.warning {
-  background-color: red;
-}
-.error {
-  background-color: yellow;
 }
