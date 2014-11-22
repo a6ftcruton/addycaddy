@@ -4,6 +4,7 @@ class ComparisonsController < ApplicationController
   end
   
   def show
+    if @comparison.valid?
     @first_address = params["first_address"]
     @results = Query.new(params).start
   end
