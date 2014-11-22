@@ -1,8 +1,8 @@
-<h3><%= @first_address %></h3>
+<h3><%= @first_address.address %></h3>
 
 <% if @results.crime %>
 <ul>
-  <h5><%= "This year there were #{@results.crime.length} crimes within ___ miles of this address." %></h5>
+  <h5 class="crime-summary"><%= "This year there were #{@results.crime.length} crimes within ___ miles of this address." %></h5>
   <% @results.crime.each do |crime| %>
     <li><%= crime.offense_type %>&nbsp<%= crime.date.to_date %></li>
   <% end %>

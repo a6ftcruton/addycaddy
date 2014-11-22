@@ -2,20 +2,20 @@ require 'ostruct'
 
 class Query
   attr_accessor :radius #allow user to change/set search radius
-  attr_reader :results,
-              :queries, 
-              :first_address,
-              :second_address
+  attr_reader   :results,
+                :first_address,
+                :second_address,
+                :queries
 
   def initialize(params)
     @results        = OpenStruct.new
-    @queries        = params["query"].keys
+    @queries        = params["query"]
     @first_address  = params["first_address"]
     @second_address = params["second_address"] 
   end
 
   def start
-    queries.each do |query|
+    queries.keys.each do |query|
       results[query] = self.send(query)
     end
     results

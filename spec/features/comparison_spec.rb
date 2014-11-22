@@ -1,0 +1,54 @@
+require 'rails_helper'
+require 'capybara/poltergeist'
+
+describe 'user submits comparison' do
+  before do
+    visit '/comparisons/new'
+  end
+
+  context 'with valid first_address' do
+    before do
+      @address = build(:address).address 
+      fill_in 'first_address', with: @address
+    end
+
+    it 'uses Crime as default criteria' do
+      click_on 'Compare'
+      within('.crime-summary') do
+        expect(page).to have_content "This year there were 0 crimes within ___ miles of this address." 
+      end
+    end
+  
+    it 'returns matching data for first_address' do
+      click_on 'Compare'
+      expect(current_path).to eq comparisons_show_path
+      expect(page).to_not have_css '.alert-box'
+      expect(page).to have_content @address
+    end
+
+    xit 'returns only data matching selected criteria' do
+      click_on 'Compare'
+      # what data will be displayed if Parks is selected?
+      expect(page).to_not have_content
+    end
+    
+
+    it 'returns an error when user manually deselects all criteria' do
+      uncheck 'query_crime'
+      click_on 'Compare'
+      save_and_open_page
+    end
+  end
+
+  context 'with invalid first_address' do
+    
+    it '' do
+      #if address is left blank
+    end
+
+    it '' do
+    #if area code is not in denver, throw error <-- include checking zip in address validation
+    end
+  end
+
+end

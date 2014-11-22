@@ -10,7 +10,6 @@ class Address
   end
 
   def geocodable?
-
     
   end
 
