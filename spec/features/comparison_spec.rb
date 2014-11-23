@@ -36,18 +36,24 @@ describe 'user submits comparison' do
     it 'returns an error when user manually deselects all criteria' do
       uncheck 'query_crime'
       click_on 'Compare'
-      save_and_open_page
+      expect(current_path).to eq comparisons_new_path
+      expect(page).to have_content "You must choose at least one criteria for your comparison."
     end
   end
 
   context 'with invalid first_address' do
     
-    it '' do
-      #if address is left blank
+    it 'empty first_address field' do
+      click_on 'Compare'
+      expect(current_path).to eq comparisons_new_path
+      expect(page).to have_content "Your address is invalid."
     end
 
-    it '' do
-    #if area code is not in denver, throw error <-- include checking zip in address validation
+    it 'does not match accepted area code' do
+      fill_in 'first_address', with: "8401 Park Meadows Center Dr Lone Tree, CO 80124"
+      click_on 'Compare'
+      expect(current_path).to eq comparisons_new_path
+      expect(page).to have_content "We can't find information on this address because it is not in Denver."
     end
   end
 
