@@ -33,8 +33,10 @@ describe 'user submits comparison' do
     end
     
 
-    it 'returns an error when user manually deselects all criteria' do
-      uncheck 'query_crime'
+    xit 'returns an error when user manually deselects all criteria' do
+      within('.switch.radius') do
+        find('input#query_crime').set(value: "0")
+      end
       click_on 'Compare'
       expect(current_path).to eq comparisons_new_path
       expect(page).to have_content "You must choose at least one criteria for your comparison."
@@ -46,14 +48,14 @@ describe 'user submits comparison' do
     it 'empty first_address field' do
       click_on 'Compare'
       expect(current_path).to eq comparisons_new_path
-      expect(page).to have_content "Your address is invalid."
+      expect(page).to have_content "Address cannot be blank."
     end
 
     it 'does not match accepted area code' do
       fill_in 'first_address', with: "8401 Park Meadows Center Dr Lone Tree, CO 80124"
       click_on 'Compare'
       expect(current_path).to eq comparisons_new_path
-      expect(page).to have_content "We can't find information on this address because it is not in Denver."
+      expect(page).to have_content "City must be located in Denver."
     end
   end
 

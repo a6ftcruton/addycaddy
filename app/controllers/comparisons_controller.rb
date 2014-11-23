@@ -9,7 +9,7 @@ class ComparisonsController < ApplicationController
 
     @first_address = Address.new(params["first_address"])
     if @first_address.invalid?
-      flash[:notice] = "Your address is invalid."
+      flash[:notice] = @first_address.errors.full_messages
       redirect_to :back    
     elsif Query.new(params).queries.nil? 
       flash[:notice] = "You must choose at least one criteria for your comparison."

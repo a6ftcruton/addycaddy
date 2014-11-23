@@ -1,21 +1,23 @@
 class Address 
   include ActiveModel::Validations
 
-  attr_accessor :address, :zipcode
+  attr_accessor :address, :city
 
-  validates :address, presence: true
-#  validates :zipcode, with: in_denver? 
+  validates :city, 
+            inclusion: { in: ["Denver"], message: "must be located in Denver." }, 
+            if: 'address.present?'
+  validates :address, presence: { message: " cannot be blank." } 
 
   def initialize(address)
     @address = address
   end
 
-  def zip_code
-    @zipcode = @address.match(/\d{5}(-\d{4})?/) 
+  def city
+    Geocoder.search(@address).first.city
   end
 
-#  def in_denver?
-#     @zipcode 
-#  end
+  def address_in_denver?
+    Geocoder.search(@address).first.city == "Denver"
+  end
 
 end

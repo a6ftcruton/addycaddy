@@ -1,8 +1,10 @@
 <% flash.each do |name, msg| %>
+  <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
     <% if msg.is_a?(String) %>
-      <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
       <%= content_tag :div, msg %>
-      <a href="#" class="close">&times;</a>
-    </div>
+    <% else %>
+      <%= content_tag :div, msg[0] %>
+    <a href="#" class="close">&times;</a>
+  </div>
   <% end %>
 <% end %>
