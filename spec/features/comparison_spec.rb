@@ -35,8 +35,9 @@ describe 'user submits comparison' do
 
     xit 'returns an error when user manually deselects all criteria' do
       within('.switch.radius') do
-        find('input#query_crime').set(value: "0")
+        find('#query_crime').click
       end
+      save_and_open_page
       click_on 'Compare'
       expect(current_path).to eq comparisons_new_path
       expect(page).to have_content "You must choose at least one criteria for your comparison."

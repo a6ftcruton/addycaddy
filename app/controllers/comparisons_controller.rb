@@ -16,6 +16,7 @@ class ComparisonsController < ApplicationController
       redirect_to comparisons_new_path(request.params)
     else
       @results = Query.new(params).start
+#      raise @results.inspect
     end
   end
 

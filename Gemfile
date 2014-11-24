@@ -18,8 +18,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-digitalocean'
 gem 'figaro'
 gem 'geocoder'
-gem 'area'
-
+gem 'httparty'
 
 group :development, :test do
   gem 'spring'
