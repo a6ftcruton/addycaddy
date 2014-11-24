@@ -19,7 +19,11 @@
               <%= label_tag "query[parks]" %>
             </div>
           </div>
-        <%= submit_tag "Compare", id: "compare", class: "button radius round" %>
+          <div class="radius">
+            <h4>Search within <%= select_tag :radius, options_for_select(['0.1', '0.2', '0.3', '0.4', '0.5', '0.8', '1.0', '1.5', '2.0', '5.0'], '0.3'), class: "small-1 small-centered" %>
+          miles of each address</h4>
+          </div>
+          <%= submit_tag "Compare", id: "compare", class: "button radius round" %>
         <% end %>
       </div>
     </div>

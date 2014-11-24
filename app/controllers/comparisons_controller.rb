@@ -6,7 +6,6 @@ class ComparisonsController < ApplicationController
   end
   
   def show
-
     @first_address = Address.new(params["first_address"])
     if @first_address.invalid?
       flash[:notice] = @first_address.errors.full_messages
