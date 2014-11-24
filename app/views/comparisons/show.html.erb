@@ -9,7 +9,10 @@
 </ul>
 <% end %>
 
-<% @results.parks.each do |park| %>
-  <li><%= park %></li>
+<% if @results.parks %>
+  <% @results.parks.each do |park| %>
+    <li><%= park %></li>
+  <% end %>
 <% end %>
+
 <h1><%= @second_address %></h1>

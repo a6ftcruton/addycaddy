@@ -1,5 +1,4 @@
 require 'ostruct'
-#require 'httparty'
 
 class Query
   attr_reader   :results,
@@ -32,6 +31,7 @@ class Query
   end
   
 #for each method name in @queries, create an http request to foursquare api
+  # e.g. @queries.each do |query|
   
 end
 
@@ -47,6 +47,5 @@ class FourSquare
   def self.send_request(address, radius, criteria)
     get("/search", query: { near: address, radius: radius, query: criteria })
   end
-  # @queries.each do |query|
-  #   add
+  
 end
