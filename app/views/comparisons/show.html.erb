@@ -10,9 +10,32 @@
 <% end %>
 
 <% if @results.parks %>
+  <h5 class="park-summary"><%= "There are #{@results.parks.count} parks within #{params["radius"]} miles of this address." %></h5>
   <% @results.parks.each do |park| %>
-    <li><%= park %></li>
+    <li><%= park["name"] %></li>
   <% end %>
 <% end %>
+
+<% if @results.grocers %>
+  <h5 class="grocers-summary"><%= "There are #{@results.grocers.count} grocery stores within #{params["radius"]} miles of this address." %></h5>
+  <% @results.grocers.each do |grocer| %>
+    <li><%= grocer["name"] %></li>
+  <% end %>
+<% end %>
+
+<% if @results.libraries %>
+  <h5 class="libraries-summary"><%= "There are #{@results.libraries.count} grocery stores within #{params["radius"]} miles of this address." %></h5>
+  <% @results.libraries.each do |library| %>
+    <li><%= library["name"] %></li>
+  <% end %>
+<% end %>
+
+<% if @results.restaurants %>
+  <h5 class="restaurants-summary"><%= "There are #{@results.restaurants.count} restaurants stores within #{params["radius"]} miles of this address." %></h5>
+  <% @results.restaurants.each do |restaurant| %>
+    <li><%= restaurant["name"] %></li>
+  <% end %>
+<% end %>
+
 
 <h1><%= @second_address %></h1>

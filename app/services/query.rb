@@ -28,14 +28,31 @@ class Query
 
   def parks
     category_id = "4bf58dd8d48988d163941735"
-    FourSquare.send_request(@first_address, radius_to_meters, category_id)
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
   end
   
+  def grocers
+    category_id = '4bf58dd8d48988d118951735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def libraries
+    category_id = '4bf58dd8d48988d12f941735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+  
+  def restaurants
+    category_id = '4d4b7105d754a06374d81259'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
   def radius_to_meters
     (radius.to_f * 1600).to_i
   end
-#for each method name in @queries, create an http request to foursquare api
-  # e.g. @queries.each do |query|
   
 end
 
@@ -46,8 +63,8 @@ class FourSquare
   base_uri 'https://api.foursquare.com/v2/venues'
   default_params client_id: ENV["FOURSQUARE_ID"], 
                  client_secret: ENV["FOURSQUARE_SECRET"],
-                 v: 20140806,
-                 output: 'json'
+                 output: 'json',
+                 v: 20140806
 
   def self.send_request(address, radius, criteria)
     get("/search", query: { near: address, radius: radius, categoryId: criteria })
