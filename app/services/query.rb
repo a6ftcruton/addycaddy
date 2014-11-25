@@ -50,6 +50,55 @@ class Query
     response["venues"]
   end
 
+  def bcycle_stations
+    category_id = '4e4c9077bd41f78e849722f9'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+  
+  def bars
+    category_id = '4bf58dd8d48988d11b941735,4bf58dd8d48988d121941735,4bf58dd8d48988d118941735'
+  response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def coffee_shops
+    category_id = '4bf58dd8d48988d1e0931735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def museums
+    category_id = '4bf58dd8d48988d181941735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+ 
+  def liquor_stores
+    category_id = '4bf58dd8d48988d186941735' 
+  response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+   def pharmacies
+    category_id = '4bf58dd8d48988d10f951735' 
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def bus_stops
+    category_id = '52f2ab2ebcbc57f1066b8b4f' 
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def light_rail_stops
+    category_id = '52f2ab2ebcbc57f1066b8b4f' 
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+ 
   def radius_to_meters
     (radius.to_f * 1600).to_i
   end
