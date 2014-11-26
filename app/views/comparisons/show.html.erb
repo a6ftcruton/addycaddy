@@ -1,123 +1,16 @@
-<h3><%= @first_address.address %></h3>
+<h2><%= @first_address.address %></h2>
 
-<% if @results.crime %>
-<ul>
-  <h5 class="crime-summary"><%= "This year there were #{@results.crime.length} crimes within #{params["radius"]} miles of this address." %></h5>
-  <% @results.crime.each do |crime| %>
-    <li><%= crime.offense_type %>&nbsp<%= crime.date.to_date %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<% if @results.parks %>
-  <h5 class="park-summary"><%= "There are #{@results.parks.count} parks within #{params["radius"]} miles of this address." %></h5>
-  <% @results.parks.each do |park| %>
-    <li><%= park["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.grocers %>
-  <h5 class="grocers-summary"><%= "There are #{@results.grocers.count} grocery stores within #{params["radius"]} miles of this address." %></h5>
-  <% @results.grocers.each do |grocer| %>
-    <li><%= grocer["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.libraries %>
-  <h5 class="libraries-summary"><%= "There are #{@results.libraries.count} libraries within #{params["radius"]} miles of this address." %></h5>
-  <% @results.libraries.each do |library| %>
-    <li><%= library["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.restaurants %>
-  <h5 class="restaurants-summary"><%= "There are #{@results.restaurants.count} restaurants within #{params["radius"]} miles of this address." %></h5>
-  <% @results.restaurants.each do |restaurant| %>
-    <li><%= restaurant["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.bcycle_stations %>
-  <h5 class="bcycle-summary"><%= "There are #{@results.bcycle_stations.count} B-Cycle stations within #{params["radius"]} miles of this address." %></h5>
-  <% @results.bcycle_stations.each do |station| %>
-    <li><%= station["location"]["crossStreet"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.bars %>
-  <h5 class="bars-summary"><%= "There are #{@results.bars.count} bars within #{params["radius"]} miles of this address." %></h5>
-  <% @results.bars.each do |bar| %>
-    <li><%= bar["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.coffee_shops %>
-  <h5 class="coffee_shops-summary"><%= "There are #{@results.coffee_shops.count} coffee shops within #{params["radius"]} miles of this address." %></h5>
-  <% @results.coffee_shops.each do |shop| %>
-    <li><%= shop["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.museums %>
-  <h5 class="museums-summary"><%= "There are #{@results.museums.count} museums within #{params["radius"]} miles of this address." %></h5>
-  <% @results.museums.each do |museum| %>
-    <li><%= museum["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.liquor_stores %>
-  <h5 class="liquor_stores-summary"><%= "There are #{@results.liquor_stores.count} liquor stores within #{params["radius"]} miles of this address." %></h5>
-  <% @results.liquor_stores.each do |store| %>
-    <li><%= store["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.pharmacies %>
-  <h5 class="pharmacies-summary"><%= "There are #{@results.pharmacies.count} pharmacies within #{params["radius"]} miles of this address." %></h5>
-  <% @results.pharmacies.each do |pharmacy| %>
-    <li><%= pharmacy["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.bus_stops %>
-  <h5 class="bus_stops-summary"><%= "There are #{@results.bus_stops.count} bus stops within #{params["radius"]} miles of this address." %></h5>
-  <% @results.bus_stops.each do |stop| %>
-    <li><%= stop["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.light_rail_stops %>
-  <h5 class="light_rail_stops-summary"><%= "There are #{@results.light_rail_stops.count} light rail stops within #{params["radius"]} miles of this address." %></h5>
-  <% @results.light_rail_stops.each do |stop| %>
-    <li><%= stop["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.theaters %>
-  <h5 class="theaters-summary"><%= "There are #{@results.theaters.count} theaters within #{params["radius"]} miles of this address." %></h5>
-  <% @results.theaters.each do |theater| %>
-    <li><%= theater["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.movies %>
-  <h5 class="movies-summary"><%= "There are #{@results.movies.count} movie theaters within #{params["radius"]} miles of this address." %></h5>
-  <% @results.movies.each do |theater| %>
-    <li><%= theater["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.art_galleries %>
-  <h5 class="art_galleries-summary"><%= "There are #{@results.art_galleries.count} art galleries within #{params["radius"]} miles of this address." %></h5>
-  <% @results.art_galleries.each do |gallery| %>
-    <li><%= gallery["name"] %></li>
-  <% end %>
-<% end %>
-
-<% if @results.hardware_stores %>
-  <h5 class="hardware_stores-summary"><%= "There are #{@results.hardware_stores.count} hardware stores within #{params["radius"]} miles of this address." %></h5>
-  <% @results.hardware_stores.each do |store| %>
-    <li><%= store["name"] %></li>
+<% @queries.each do |query| %>
+  <h4><%= "There are #{(@results.send(query.to_sym)).length} " + query + " within #{params['radius']} miles of this address." %></h4>
+  <% @results.send(query.to_sym).map do |result| %>
+    <% case %>
+    <% when result.class == Crime %>
+      <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
+    <% when result["bcycle_stations"] %>
+      <li><%= result["location"]["crossStreet"] %></li>
+    <% else %>
+      <li><%= result["name"] %></li>
+    <% end %>
   <% end %>
 <% end %>
 

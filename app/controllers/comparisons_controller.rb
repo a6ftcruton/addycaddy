@@ -14,6 +14,7 @@ class ComparisonsController < ApplicationController
       flash[:notice] = "You must choose at least one criteria for your comparison."
       redirect_to comparisons_new_path(request.params)
     else
+      @queries = params["query"].keys
       @results = Query.new(params).start
 #      raise @results.inspect
     end

@@ -22,7 +22,7 @@ class Query
     results
   end
 
-  def crime
+  def crimes
     Crime.current_year.near(@first_address, radius.to_f)
   end
 
@@ -32,7 +32,7 @@ class Query
     response["venues"]
   end
   
-  def grocers
+  def grocery_stores
     category_id = '4bf58dd8d48988d118951735'
     response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
     response["venues"]
