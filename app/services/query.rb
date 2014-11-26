@@ -122,6 +122,12 @@ class Query
     response["venues"]
   end 
 
+  def hardware_stores
+    category_id = '4bf58dd8d48988d112951735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end 
+
   def radius_to_meters
     (radius.to_f * 1600).to_i
   end

@@ -80,7 +80,7 @@
 <% end %>
 
 <% if @results.bus_stops %>
-  <h5 class="bus_stops-summary"><%= "There are #{@results.bus_stops.count} pharmacies within #{params["radius"]} miles of this address." %></h5>
+  <h5 class="bus_stops-summary"><%= "There are #{@results.bus_stops.count} bus stops within #{params["radius"]} miles of this address." %></h5>
   <% @results.bus_stops.each do |stop| %>
     <li><%= stop["name"] %></li>
   <% end %>
@@ -108,9 +108,16 @@
 <% end %>
 
 <% if @results.art_galleries %>
-  <h5 class="art_galleries-summary"><%= "There are #{@results.art_galleries.count} movie theaters within #{params["radius"]} miles of this address." %></h5>
+  <h5 class="art_galleries-summary"><%= "There are #{@results.art_galleries.count} art galleries within #{params["radius"]} miles of this address." %></h5>
   <% @results.art_galleries.each do |gallery| %>
     <li><%= gallery["name"] %></li>
+  <% end %>
+<% end %>
+
+<% if @results.hardware_stores %>
+  <h5 class="hardware_stores-summary"><%= "There are #{@results.hardware_stores.count} hardware stores within #{params["radius"]} miles of this address." %></h5>
+  <% @results.hardware_stores.each do |store| %>
+    <li><%= store["name"] %></li>
   <% end %>
 <% end %>
 
