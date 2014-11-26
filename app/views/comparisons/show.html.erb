@@ -93,4 +93,25 @@
   <% end %>
 <% end %>
 
+<% if @results.theaters %>
+  <h5 class="theaters-summary"><%= "There are #{@results.theaters.count} theaters within #{params["radius"]} miles of this address." %></h5>
+  <% @results.theaters.each do |theater| %>
+    <li><%= theater["name"] %></li>
+  <% end %>
+<% end %>
+
+<% if @results.movies %>
+  <h5 class="movies-summary"><%= "There are #{@results.movies.count} movie theaters within #{params["radius"]} miles of this address." %></h5>
+  <% @results.movies.each do |theater| %>
+    <li><%= theater["name"] %></li>
+  <% end %>
+<% end %>
+
+<% if @results.art_galleries %>
+  <h5 class="art_galleries-summary"><%= "There are #{@results.art_galleries.count} movie theaters within #{params["radius"]} miles of this address." %></h5>
+  <% @results.art_galleries.each do |gallery| %>
+    <li><%= gallery["name"] %></li>
+  <% end %>
+<% end %>
+
 <h1><%= @second_address %></h1>

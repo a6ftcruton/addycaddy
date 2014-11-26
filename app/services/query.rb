@@ -98,7 +98,30 @@ class Query
     response["venues"]
   end
 
- 
+  def theaters
+    category_id = '4bf58dd8d48988d137941735,4bf58dd8d48988d135941735,4bf58dd8d48988d1ac941735' 
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def movies
+    category_id = '4bf58dd8d48988d17f941735' 
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end
+
+  def live_music
+    category_id = '4bf58dd8d48988d1e5931735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end 
+
+  def art_galleries
+    category_id = '4bf58dd8d48988d1e2931735'
+    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    response["venues"]
+  end 
+
   def radius_to_meters
     (radius.to_f * 1600).to_i
   end
