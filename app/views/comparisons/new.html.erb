@@ -12,41 +12,58 @@
         </div>
           <div class="checkboxes">
             <h3>Choose Categories to Compare</h3>
-            <div class="switch radius">
-              <%= check_box_tag "query[crimes]", 1, true %>SAFETY
-              <%= label_tag "query[crimes]" %>
-              <%= check_box_tag "query[parks]" %>PARKS
-              <%= label_tag "query[parks]" %>
+            <div class="row">
+            <ul class="button-group small-12 large-centered columns">
+              <li><a class="button category-button general"><i class="fi-star"></i>General</a></li>
+              <li><a class="button category-button convenience"><i class="fi-compass"></i>Convenience</a></li>
+              <li><a class="button category-button things-to-do"><i class="fi-ticket"></i>Things To Do</a></li>
+              <li><a class="button category-button food-and-drink"><i class="fi-star"></i>Food & Drink</a></li>
+              <li><a class="button category-button transportation"><i class="fi-map"></i>Transportation</a></li>
+            </ul>
+          </div>
+            <div class="convenience-group switch radius">
               <%= check_box_tag "query[grocery_stores]" %>GROCERY STORES
               <%= label_tag "query[grocery_stores]" %>
-              <%= check_box_tag "query[libraries]" %>LIBRARIES
-              <%= label_tag "query[libraries]" %>
-              <%= check_box_tag "query[restaurants]" %>RESTAURANTS
-              <%= label_tag "query[restaurants]" %>
-              <%= check_box_tag "query[bars]" %>BARS
-              <%= label_tag "query[bars]" %>
-              <%= check_box_tag "query[bcycle_stations]" %>B-CYCLE STATIONS
-              <%= label_tag "query[bcycle_stations]" %>
-              <%= check_box_tag "query[coffee_shops]" %>COFFEE SHOPS
-              <%= label_tag "query[coffee_shops]" %>
-              <%= check_box_tag "query[museums]" %>MUSEUMS
-              <%= label_tag "query[museums]" %>
               <%= check_box_tag "query[liquor_stores]" %>LIQUOR STORES
               <%= label_tag "query[liquor_stores]" %>
               <%= check_box_tag "query[pharmacies]" %>PHARMACIES
               <%= label_tag "query[pharmacies]" %>
-              <%= check_box_tag "query[bus_stops]" %>BUS STOPS
-              <%= label_tag "query[bus_stops]" %>
-              <%= check_box_tag "query[light_rail_stops]" %>LIGHT RAIL STOPS
-              <%= label_tag "query[light_rail_stops]" %>
+              <%= check_box_tag "query[hardware_stores]" %>HARDWARE STORES
+              <%= label_tag "query[hardware_stores]" %>
+              <%= check_box_tag "query[libraries]" %>LIBRARIES
+              <%= label_tag "query[libraries]" %>
+            </div>
+            <div class="general-group switch radius">
+              <%= check_box_tag "query[crimes]", 1, true %>SAFETY
+              <%= label_tag "query[crimes]" %>
+              <%= check_box_tag "query[parks]" %>PARKS
+              <%= label_tag "query[parks]" %>
+            </div>
+            <div class="things-to-do-group switch radius">
               <%= check_box_tag "query[theaters]" %>THEATERS
               <%= label_tag "query[theaters]" %>
               <%= check_box_tag "query[movies]" %>MOVIES
               <%= label_tag "query[movies]" %>
+              <%= check_box_tag "query[museums]" %>MUSEUMS
+              <%= label_tag "query[museums]" %>
               <%= check_box_tag "query[art_galleries]" %>ART GALLERIES
               <%= label_tag "query[art_galleries]" %>
-              <%= check_box_tag "query[hardware_stores]" %>HARDWARE STORES
-              <%= label_tag "query[hardware_stores]" %>
+            </div>
+            <div class="transportation-group switch radius">
+              <%= check_box_tag "query[bcycle_stations]" %>B-CYCLE STATIONS
+              <%= label_tag "query[bcycle_stations]" %>
+              <%= check_box_tag "query[bus_stops]" %>BUS STOPS
+              <%= label_tag "query[bus_stops]" %>
+              <%= check_box_tag "query[light_rail_stops]" %>LIGHT RAIL STOPS
+              <%= label_tag "query[light_rail_stops]" %>
+            </div>
+            <div class="food-and-drink-group switch radius">
+              <%= check_box_tag "query[restaurants]" %>RESTAURANTS
+              <%= label_tag "query[restaurants]" %>
+              <%= check_box_tag "query[bars]" %>BARS
+              <%= label_tag "query[bars]" %>
+              <%= check_box_tag "query[coffee_shops]" %>COFFEE SHOPS
+              <%= label_tag "query[coffee_shops]" %>
             </div>
           </div>
           <div class="radius">
