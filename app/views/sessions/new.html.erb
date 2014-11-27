@@ -1,7 +1,11 @@
 <body class="login-body">
   <div class="row login-wrapper">
+    <%= image_tag 'logo-large.svg', class: "logo-large small-7 small-centered columns" %>
+    <div class="login-banner">
+      <h1>Welcome to AddyCaddy</h1>
+      <h2>Find the place that's fit for you</h2>
+    </div>
     <div class="small-12 small-centered columns">
-      <h1 class="app-banner">Addy Caddy</h1>
       <%= link_to user_omniauth_authorize_path(:twitter), class: "small-6 small-centered columns button twitter-login-button" do %>Sign In With Twitter
           <i class="fi-social-twitter"></i>
         <% end %>

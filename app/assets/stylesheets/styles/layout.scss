@@ -5,6 +5,7 @@ h4,
 h5,
 h6,
 a {
+  font-family: Oswald, sans;
 }
 .wrapper {
   text-align: center;
@@ -24,4 +25,8 @@ li {
   font-size: 1.5rem; 
   font-family: Oswald;
   letter-spacing: 0.1em;
+}
+// Navbar styles
+.nav-logo {
+  width: 50px
 }

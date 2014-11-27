@@ -1,30 +1,34 @@
 .login-body {
-  background: url('bricks-large.jpg') no-repeat center center fixed; 
+  //background: url('bricks-large.jpg') no-repeat center center fixed; 
+  background-color: rgba(0, 0, 0, 0.8);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-.app-banner {
-  position: absolute;
-  top: -30vh;
-  left: 0;
-  right: 0;
-  border-radius: 15px;
-  color: white;
-  background-color: rgba(0, 0, 0, .3);
-}
+.logo-large {
+  width: 200px;
+  margin-top: 15vh;
+  margin-bottom: 12vh;
+ }
 .login-wrapper {
   text-align: center;
   color: white;
-  position: relative;
-  top: 70vh;
-  left: 0;
-  right:0;
+ }
+.login-banner {
+  padding: 0 20%;
+  border-radius: 10px;
+}
+.login-banner > h1,
+.login-banner > h2 {
+  font-family: Oswald, sans-serif;
+  color: white;
+  text-shadow: 1px 3px 7px rgba(2, 0, 0, .9);
 }
 .twitter-login-button {
   border-radius: 15px;
   font-size: 1.8rem;
+  margin-top: 12%;
 }
 .fi-social-twitter {
   font-size: 2rem;

@@ -3,27 +3,30 @@
       <div class="row">
         <%= form_tag(comparisons_show_path, method: "get") do %>
         <div class="small-6 columns">
-          <%= label_tag :first_address %>
+          <%= label_tag :first_address, nil, class: "address-label" %>
           <%= text_field_tag :first_address, params["first_address"], placeholder: "123 First Address St Denver, CO 80206" %>
         </div>
         <div class="small-6 columns">
-          <%= label_tag :second_address %>
+          <%= label_tag :second_address, nil, class: "address-label" %>
           <%= text_field_tag :second_address, params["second_address"], placeholder: "456 Second Address St Denver, CO 80218" %>
         </div>
           <div class="checkboxes">
             <h3>Choose Categories to Compare</h3>
             <div class="row">
             <ul class="button-group small-12 large-centered columns">
-              <li><a class="button category-button general"><i class="fi-star"></i>General</a></li>
-              <li><a class="button category-button convenience"><i class="fi-compass"></i>Convenience</a></li>
-              <li><a class="button category-button things-to-do"><i class="fi-ticket"></i>Things To Do</a></li>
-              <li><a class="button category-button food-and-drink"><i class="fi-star"></i>Food & Drink</a></li>
-              <li><a class="button category-button transportation"><i class="fi-map"></i>Transportation</a></li>
+              <li><a class="button category-button general">General<span class="glyphicon glyphicon-star"></span></a></li>
+              <li><a class="button category-button convenience">Convenience<span class="glyphicon glyphicons-map"></span></a></li>
+              <li><a class="button category-button things-to-do">Things To Do<span class="glyphicon glyphicons-film"></span></a></li>
+              <li><a class="button category-button food-and-drink">Food & Drink<span class="glyphicon glyphicons-fast-food;
+              "></span></a></li>
+              <li><a class="button category-button transportation">Transportation<span class="glyphicons glyphicons-bus"></span></a></li>
             </ul>
           </div>
             <div class="convenience-group switch radius">
+              <div class="category-checkbox">
               <%= check_box_tag "query[grocery_stores]" %>GROCERY STORES
               <%= label_tag "query[grocery_stores]" %>
+            </div>
               <%= check_box_tag "query[liquor_stores]" %>LIQUOR STORES
               <%= label_tag "query[liquor_stores]" %>
               <%= check_box_tag "query[pharmacies]" %>PHARMACIES
