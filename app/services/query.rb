@@ -1,6 +1,7 @@
 require 'ostruct'
 
 class Query
+
   attr_reader   :results,
                 :first_address,
                 :second_address,
@@ -12,7 +13,7 @@ class Query
     @queries        = params["query"]
     @first_address  = params["first_address"]
     @second_address = params["second_address"] 
-    @radius         = params["radius"].to_f
+    @radius         = params["radius"].to_f #removed .to_f
   end
 
   def start
@@ -127,11 +128,11 @@ class Query
     response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
     response["venues"]
   end 
-
-  def radius_to_meters
-    (radius.to_f * 1600).to_i
-  end
   
+  def radius_to_meters
+    (radius * 1600).to_i
+  end
+
 end
 
 class FourSquare
