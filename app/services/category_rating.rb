@@ -2,6 +2,7 @@ class CriteriaRating
 
   attr_reader :address,
               :radius,
+              :points,
               :primary_radius,
               :secondary_radius,
               :tertiary_radius
@@ -11,22 +12,22 @@ class CriteriaRating
     @radius = radius.to_f
   end
 
-  def rating(results)
-    points = 0 
-    results.parks.map do |result|
+  def rating(results, query)
+    @points = 0 
+    results.send(query.to_sym).map do |result|
       @result_location = [result["location"]["lat"], result["location"]["lng"] ]
       if within_primary_radius? 
-        points += 5
+        @points += 5
        elsif within_secondary_radius?
-        points += 3
+        @points += 3
       else
-        points += 1
+        @points += 1
       end
     end
-    points
+    @points
   end
 
-  def within_primary_radius?
+ def within_primary_radius?
     convert_to_meters(Geocoder::Calculations.distance_between(address, @result_location)) < secondary_radius
   end
 

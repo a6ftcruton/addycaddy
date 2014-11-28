@@ -1,18 +1,23 @@
 <h2><%= @first_address.address %></h2>
 <%= "Within #{params['radius']} miles of this address there are: "%>
 <% @queries.each do |query| %>
-  <h4><%= "#{(@results.send(query.to_sym)).length} " + query %></h4>
-  <% @results.send(query.to_sym).map do |result| %>
-    <% case %>
-    <% when result.class == Crime %>
-      <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
-    <% when result["bcycle_stations"] %>
-      <li><%= result["location"]["crossStreet"] %></li>
-    <% else %>
-      <li><%= result["name"] %></li>
+  <% if query == "Crime" %>
+    <% #do something to score crime %>
+  <% else %>
+    <h2><%= "Score of #{@rating.rating(@results, query)}" %></h2>
+    <h4><%= "#{(@results.send(query.to_sym)).length} " + query %></h4>
+    <% @results.send(query.to_sym).map do |result| %>
+      <% case %>
+      <% when result.class == Crime %>
+        <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
+      <% when result["bcycle_stations"] %>
+        <li><%= result["location"]["crossStreet"] %></li>
+      <% else %>
+        <li><%= result["name"] %></li>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= "Parks points: #{@rating.rating(@results)}" %>
+<%= "Parks points: #{@rating.points}" %>
 <h1><%= @second_address %></h1>
