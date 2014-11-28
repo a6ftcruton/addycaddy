@@ -1,12 +1,16 @@
 <% if current_user %>
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
-    <li class="icon nav-logo"><%= image_tag 'logo.svg' %></li>  
     <li class="name"><h1><a href="#">AddyCaddy</a></h1> </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#"><%= image_tag 'logo.svg', class: "icon nav-logo" %></a></li>
+    </ul>
+
     <!-- Right Nav Section -->
     <ul class="right">
       <li><a href="#"><%= render partial: 'layouts/sign_in' %></a></li>
