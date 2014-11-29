@@ -16,10 +16,7 @@ class ComparisonsController < ApplicationController
     else
       @queries = params["query"].keys
       @results = Query.new(params).start
-      # eventually this will be CategoryRating and AddressRating
-      @rating = CriteriaRating.new(@first_address.address, params["radius"])
-
-#      raise @results.inspect
+      @ratings = Rating.new(@first_address.address, params["radius"])
     end
   end
 
