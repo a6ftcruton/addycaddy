@@ -2,9 +2,7 @@ class Rating
 
   attr_reader :address,
               :radius,
-              :points,
-              :primary_radius,
-              :secondary_radius
+              :points
 
   def initialize(address, radius)
     @address = address
@@ -15,22 +13,22 @@ class Rating
   end
 
   def criteria_score(results, query)
-    @points = 0 
+    points = 0 
     if query == "crimes"
-      @points = results.send(query.to_sym).length * -3      
+      points = results.send(query.to_sym).length * -3      
     else
       results.send(query.to_sym).map do |result|
         @result_location = [result["location"]["lat"], result["location"]["lng"] ]
         if within_primary_radius? 
-          @points += 5
+          points += 5
         elsif within_secondary_radius?
-          @points += 3
+          points += 3
         else
-          @points += 1
+          points += 1
         end
       end
     end
-    @points
+    points
   end
 
  def within_primary_radius?

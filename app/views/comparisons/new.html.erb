@@ -1,80 +1,82 @@
-  <div class="row wrapper small-12 small-centered query-box">
-    <div class="small-11 small-centered columns comparison-container">
-      <div class="row">
-        <%= form_tag(comparisons_show_path, method: "get") do %>
-        <div class="small-6 columns">
-          <%= label_tag :first_address, nil, class: "address-label" %>
-          <%= text_field_tag :first_address, params["first_address"], placeholder: "123 First Address St Denver, CO 80206" %>
-        </div>
-        <div class="small-6 columns">
-          <%= label_tag :second_address, nil, class: "address-label" %>
-          <%= text_field_tag :second_address, params["second_address"], placeholder: "456 Second Address St Denver, CO 80218" %>
-        </div>
-          <div class="checkboxes">
-            <h3>Choose Categories to Compare</h3>
-            <div class="row">
-            <ul class="button-group small-12 large-centered columns">
-              <li><a class="button category-button general">General</a></li>
-              <li><a class="button category-button convenience">Convenience<i class="fi-compass category-icon"></i></a></li>
-              <li><a class="button category-button things-to-do">Things To Do<i class="fi-ticket category-icon"></i></a></li>
-              <li><a class="button category-button food-and-drink">Food & Drink<i class="fi-star category-icon"></i></a></li>
-              <li><a class="button category-button transportation">Transportation<i class="fi-map category-icon"></i></a></li>
-            </ul>
-          </div>
-            <div class="convenience-group switch radius">
-              <div class="category-checkbox">
-              <%= check_box_tag "query[grocery_stores]" %>GROCERY STORES
-              <%= label_tag "query[grocery_stores]" %>
-            </div>
-              <%= check_box_tag "query[liquor_stores]" %>LIQUOR STORES
-              <%= label_tag "query[liquor_stores]" %>
-              <%= check_box_tag "query[pharmacies]" %>PHARMACIES
-              <%= label_tag "query[pharmacies]" %>
-              <%= check_box_tag "query[hardware_stores]" %>HARDWARE STORES
-              <%= label_tag "query[hardware_stores]" %>
-              <%= check_box_tag "query[libraries]" %>LIBRARIES
-              <%= label_tag "query[libraries]" %>
-            </div>
-            <div class="general-group switch radius">
-              <%= check_box_tag "query[crimes]", 1, true %>SAFETY
-              <%= label_tag "query[crimes]" %>
-              <%= check_box_tag "query[parks]" %>PARKS
-              <%= label_tag "query[parks]" %>
-            </div>
-            <div class="things-to-do-group switch radius">
-              <%= check_box_tag "query[theaters]" %>THEATERS
-              <%= label_tag "query[theaters]" %>
-              <%= check_box_tag "query[movies]" %>MOVIES
-              <%= label_tag "query[movies]" %>
-              <%= check_box_tag "query[museums]" %>MUSEUMS
-              <%= label_tag "query[museums]" %>
-              <%= check_box_tag "query[art_galleries]" %>ART GALLERIES
-              <%= label_tag "query[art_galleries]" %>
-            </div>
-            <div class="transportation-group switch radius">
-              <%= check_box_tag "query[bcycle_stations]" %>B-CYCLE STATIONS
-              <%= label_tag "query[bcycle_stations]" %>
-              <%= check_box_tag "query[bus_stops]" %>BUS STOPS
-              <%= label_tag "query[bus_stops]" %>
-              <%= check_box_tag "query[light_rail_stops]" %>LIGHT RAIL STOPS
-              <%= label_tag "query[light_rail_stops]" %>
-            </div>
-            <div class="food-and-drink-group switch radius">
-              <%= check_box_tag "query[restaurants]" %>RESTAURANTS
-              <%= label_tag "query[restaurants]" %>
-              <%= check_box_tag "query[bars]" %>BARS
-              <%= label_tag "query[bars]" %>
-              <%= check_box_tag "query[coffee_shops]" %>COFFEE SHOPS
-              <%= label_tag "query[coffee_shops]" %>
-            </div>
-          </div>
-          <div class="radius">
-            <h4>Search within <%= select_tag :radius, options_for_select(['0.1', '0.2', '0.3', '0.4', '0.5', '0.8', '1.0', '1.5', '2.0', '5.0'], '0.3'), class: "small-2 small-centered" %>
-          miles of each address</h4>
-          </div>
-          <%= submit_tag "Compare", id: "compare", class: "button radius round" %>
-        <% end %>
+<div class="row wrapper small-12 small-centered query-box">
+  <div class="small-12 small-centered columns comparison-container">
+    <div class="row">
+      <%= form_tag(comparisons_show_path, method: "get") do %>
+      <div class="small-6 columns">
+        <%= label_tag :first_address, nil, class: "address-label" %>
+        <%= text_field_tag :first_address, params["first_address"], placeholder: "123 First Address St Denver, CO 80206" %>
       </div>
+      <div class="small-6 columns">
+        <%= label_tag :second_address, nil, class: "address-label" %>
+        <%= text_field_tag :second_address, params["second_address"], placeholder: "456 Second Address St Denver, CO 80218" %>
+      </div>
+          <div class="row">
+            <div class="large-12 columns">
+              <ul class="button-group">
+                <h3>Choose Categories to Compare</h3>
+                <li><a class="button category-button general">General</a></li>
+                <li><a class="button category-button convenience">Convenience<i class="fi-compass category-icon"></i></a></li>
+                <li><a class="button category-button things-to-do">Things To Do<i class="fi-ticket category-icon"></i></a></li>
+                <li><a class="button category-button food-and-drink">Food & Drink<i class="fi-star category-icon"></i></a></li>
+                <li><a class="button category-button transportation">Transportation<i class="fi-map category-icon"></i></a></li>
+              </ul>
+        </div>
+        </div>
+        <div class="checkboxes">
+          <div class="convenience-group switch radius">
+            <div class="category-checkbox">
+            <%= check_box_tag "query[grocery_stores]" %>GROCERY STORES
+            <%= label_tag "query[grocery_stores]" %>
+          </div>
+            <%= check_box_tag "query[liquor_stores]" %>LIQUOR STORES
+            <%= label_tag "query[liquor_stores]" %>
+            <%= check_box_tag "query[pharmacies]" %>PHARMACIES
+            <%= label_tag "query[pharmacies]" %>
+            <%= check_box_tag "query[hardware_stores]" %>HARDWARE STORES
+            <%= label_tag "query[hardware_stores]" %>
+            <%= check_box_tag "query[libraries]" %>LIBRARIES
+            <%= label_tag "query[libraries]" %>
+          </div>
+          <div class="general-group switch radius">
+            <%= check_box_tag "query[crimes]", 1, true %>SAFETY
+            <%= label_tag "query[crimes]" %>
+            <%= check_box_tag "query[parks]" %>PARKS
+            <%= label_tag "query[parks]" %>
+          </div>
+          <div class="things-to-do-group switch radius">
+            <%= check_box_tag "query[theaters]" %>THEATERS
+            <%= label_tag "query[theaters]" %>
+            <%= check_box_tag "query[movies]" %>MOVIES
+            <%= label_tag "query[movies]" %>
+            <%= check_box_tag "query[museums]" %>MUSEUMS
+            <%= label_tag "query[museums]" %>
+            <%= check_box_tag "query[art_galleries]" %>ART GALLERIES
+            <%= label_tag "query[art_galleries]" %>
+          </div>
+          <div class="transportation-group switch radius">
+            <%= check_box_tag "query[bcycle_stations]" %>B-CYCLE STATIONS
+            <%= label_tag "query[bcycle_stations]" %>
+            <%= check_box_tag "query[bus_stops]" %>BUS STOPS
+            <%= label_tag "query[bus_stops]" %>
+            <%= check_box_tag "query[light_rail_stops]" %>LIGHT RAIL STOPS
+            <%= label_tag "query[light_rail_stops]" %>
+          </div>
+          <div class="food-and-drink-group switch radius">
+            <%= check_box_tag "query[restaurants]" %>
+            <%= label_tag "query[restaurants]" %>RESTAURANTS
+            <%= check_box_tag "query[bars]" %>BARS
+            <%= label_tag "query[bars]" %>
+            <%= check_box_tag "query[coffee_shops]" %>COFFEE SHOPS
+            <%= label_tag "query[coffee_shops]" %>
+          </div>
+        </div>
+        <div class="radius">
+          <h4>Search within <%= select_tag :radius, options_for_select(['0.1', '0.2', '0.3', '0.4', '0.5', '0.8', '1.0', '1.5', '2.0', '5.0'], '0.3'), class: "radius-dropdown small-2 small-centered" %>
+        miles of each address</h4>
+        </div>
+        <%= submit_tag "COMPARE", id: "compare", class: "button radius round" %>
+      <% end %>
     </div>
+  </div>
 </div>
 
