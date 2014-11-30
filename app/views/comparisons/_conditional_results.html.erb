@@ -1,0 +1,13 @@
+    <!-- all this is just printing...use a decorator like Draper!
+    while you\'re at it, standardize these methods so you can call .name on all of them instead of ["name"] or ["location"] or .offense_type so, in Crime, create an instance method .name, do the same thing in Query... -->
+<div class="result-details">
+  <% case %>
+    <% when result.class == Crime %>
+      <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
+    <% when result["bcycle_stations"] %>
+      <li><%= result["location"]["crossStreet"] %></li>
+    <% else %>
+      <li><%= result["name"] %></li>        
+  <% end %>
+</div>
+

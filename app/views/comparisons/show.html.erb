@@ -1,18 +1,30 @@
-<h2><%= @first_address.address %></h2>
-<%= "Within #{params['radius']} miles of this address there are: "%>
+<h3 class="large-6 large-centered columns"><%= "Within #{params['radius']} miles of each address there are: " %></h3>
+
+<h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
+<h2 class="second-address large-6 columns"><%= @second_address.address %></h2>
+
 <% @queries.each do |query| %>
-  <h2><%= "Score of #{@ratings.criteria_score(@results, query)}" %></h2>
-  <h4><%= "#{(@results.send(query.to_sym)).length} " + query %></h4>
-  <% @results.send(query.to_sym).map do |result| %>
-    <% case %>
-    <% when result.class == Crime %>
-      <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
-    <% when result["bcycle_stations"] %>
-      <li><%= result["location"]["crossStreet"] %></li>
-    <% else %>
-      <li><%= result["name"] %></li>
-    <% end %>
-  <% end %>
+    <div class="results large-6 columns">
+      <h4>
+        <a href="#" class="<%= "first-address-" + query %>">
+          <%= "#{(@results.send(query.to_sym)).first.length} " + query %>
+        </a>
+      </h4>
+      <% @results.send(query.to_sym).first.map do |result| %>
+        <%= render 'conditional_results', result: result %>
+      <% end %>
+    </div>
+
+    <div class="results large-6 columns">
+      <h4><a href="#" class="<%= "second-address-" + query %>">
+        <%= "#{(@results.send(query.to_sym)).last.length} " + query %>
+      </a></h4>
+      <% @results.send(query.to_sym).last.map do |result| %>
+          <%= render 'conditional_results', result: result %>
+      <% end %>
+    </div>
 <% end %>
 
-<h1><%= @second_address %></h1>
+    <!-- all this is just printing...use a decorator like Draper!
+    while you\'re at it, standardize these methods so you can call .name on all of them instead of ["name"] or ["location"] or .offense_type so, in Crime, create an instance method .name, do the same thing in Query... -->
+

@@ -1,12 +1,13 @@
 class ComparisonsController < ApplicationController
 #  before_filter :authenticate_user!
-  attr_reader :first_address
+  attr_reader :first_address, :second_address
 
   def new
   end
   
   def show
     @first_address = Address.new(params["first_address"])
+    @second_address = Address.new(params["second_address"])
     if @first_address.invalid?
       flash[:notice] = @first_address.errors.full_messages
       redirect_to :back    
@@ -16,6 +17,7 @@ class ComparisonsController < ApplicationController
     else
       @queries = params["query"].keys
       @results = Query.new(params).start
+      #@criteria_comparison = Ranking.new(@first_address, @second_address)
       @ratings = Rating.new(@first_address.address, params["radius"])
     end
   end

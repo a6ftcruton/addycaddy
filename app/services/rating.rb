@@ -9,8 +9,13 @@ class Rating
     @radius = radius.to_f
   end
 
-  def total_rating
-  end
+#  def score
+#    #results.thisquery.length
+#  end
+#
+#  def best
+#    #return the address that has the better score 
+#  end
 
   def criteria_score(results, query)
     points = 0 
