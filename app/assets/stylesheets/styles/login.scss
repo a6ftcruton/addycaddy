@@ -29,7 +29,11 @@
   border-radius: 15px;
   font-size: 1.8rem;
   margin-top: 12%;
+  background-color: #924973;
 }
+.twitter-login-button:hover {
+  background-color: darken(#924973, 5%);
+} 
 .fi-social-twitter {
   font-size: 2rem;
   position: relative;

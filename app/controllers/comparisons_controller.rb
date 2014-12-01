@@ -17,8 +17,6 @@ class ComparisonsController < ApplicationController
     else
       @queries = params["query"].keys
       @results = Query.new(params).start
-      #@criteria_comparison = Ranking.new(@first_address, @second_address)
-      @ratings = Rating.new(@first_address.address, params["radius"])
     end
   end
 

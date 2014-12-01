@@ -10,7 +10,7 @@ $(document).ready(function() {
   function categoryClick() {
    $('.category-button').click(function(e) {
      var clicked = $(e.currentTarget).attr('class').split(/\s+/).pop();
-     $('.switch.radius').toggle("slow").not('.' + clicked + '-group').delay(200).hide();
+     $('.criteria-group').toggle("slow").not('.' + clicked + '-group').delay(200).hide();
    }); 
   }
   
