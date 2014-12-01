@@ -18,9 +18,9 @@ ul.button-group > li {
   display: none;
   background-color: darkgray;
   border-radius: 10px;
-  -webkit-box-shadow: inset 3px 10px 5px 0px rgba(0,0,0,0.41);
-  -moz-box-shadow: inset 3px 10px 5px 0px rgba(0,0,0,0.41);
-  box-shadow: inset 3px 10px 5px 0px rgba(0,0,0,0.41);
+  -webkit-box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41), inset -1px 10px 8px 0px rgba(0,0,0,0.41);
+  -moz-box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41), inset -1px 10px 8px 0px rgba(0,0,0,0.41);
+  box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41) inset -1px 10px 8px 0px rgba(0,0,0,0.41);
 }
 .radius-dropdown {
   margin-top: 5%;
@@ -68,7 +68,7 @@ input[id^="query"] + label {
 }
 [id^="query"] + label:hover  {
   border-top: 1px solid rgba(0, 0, 0, 0.8);
-  background-color: darkgray;
+  background-color: lighten(lightgray, 10%);
   box-shadow: inset 0 -50px 37px -30px rgba(255, 222, 240, 0.07), 0 0 13px rgba(0, 0, 0, 0.6);
 }
 [id^="query"] + label:active  {
