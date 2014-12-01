@@ -4,6 +4,9 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
+
+Capybara.javascript_driver = :poltergeist
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Checks for pending migrations before tests are run.

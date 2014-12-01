@@ -16,6 +16,7 @@ class ComparisonsController < ApplicationController
       redirect_to comparisons_new_path(request.params)
     else
       @queries = params["query"].keys
+#      @results = Resque.enqueue(Query.new(params.start)) <-- background workers?
       @results = Query.new(params).start
     end
   end

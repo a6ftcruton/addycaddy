@@ -14,13 +14,13 @@ describe 'user submits comparison' do
     end
 
     it 'returns total count of crimes' do
-      expect(page).to have_content "General"
-      check("query[crimes]")
-      check("query[parks]")
-      find('#compare').click
+      find(:css, '#park-button').set(true)
+      expect(page).to have_css('#compare')
+      page.click_on('#compare')
+#      find('input#compare').click
       expect(page).to_not have_css('.alert-box')
-#      save_and_open_page
-      expect(page).to have_css '.first-address-crimes'
+      expect(current_path).to eq('/comparisons/show')
+      expect(page).to have_css('.first-address-parks')
     end
 
     xit 'shows crime details when user clicks crime heading' do

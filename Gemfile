@@ -19,6 +19,7 @@ gem 'omniauth-digitalocean'
 gem 'figaro'
 gem 'geocoder'
 gem 'httparty'
+gem 'resque'
 
 group :development, :test do
   gem 'spring'
@@ -28,11 +29,12 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails', '~> 0.3.2'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 group :test do
-  gem 'capybara', '~> 2.4.3'
-  gem 'poltergeist'
   gem 'launchy'
   gem 'vcr'
   gem 'fakeweb'

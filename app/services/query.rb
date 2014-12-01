@@ -2,6 +2,7 @@ require 'ostruct'
 
 class Query
   include FourSquare
+  @queue = :start # <-- background workers
 
   attr_reader   :results,
                 :first_address,
@@ -14,7 +15,7 @@ class Query
     @queries        = params["query"]
     @first_address  = params["first_address"]
     @second_address = params["second_address"] 
-    @radius         = params["radius"].to_f #removed .to_f
+    @radius         = params["radius"].to_f 
   end
 
   def start
@@ -23,6 +24,10 @@ class Query
     end
     results
   end
+
+#  def self.perform <-- background workers
+#    start
+#  end
 
   def crimes
     first_address_results = Crime.current_year.near(@first_address, radius.to_f)
