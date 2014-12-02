@@ -24,9 +24,9 @@ class Query
     results
   end
 
-#  def self.perform <-- background workers
-#    start
-#  end
+  def api_start
+    results[queries] = self.send(queries)
+  end
 
   def crimes
     first_address_results = Crime.current_year.near(@first_address, radius.to_f)

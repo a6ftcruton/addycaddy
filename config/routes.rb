@@ -6,4 +6,11 @@ Rails.application.routes.draw do
   get '/comparisons/new', to: 'comparisons#new'
   get '/comparisons/show', to: 'comparisons#show'
   root to: 'sessions#new'
+
+  namespace :api do
+    namespace :v1 do
+      resources :comparisons, only: [:index]
+    end
+  end
+
 end

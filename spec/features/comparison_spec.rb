@@ -1,11 +1,17 @@
 require 'rails_helper'
-require 'capybara/poltergeist'
 
-describe 'user submits comparison' do
+describe 'user submits comparison', js:true do
   before do
     visit '/comparisons/new'
   end
 
+  # NEED TO DEAL WITH AUTHENTICATION
+
+  # js on the page?
+  # db cleaner?
+  # maybe #compare is something you can look at but not touch
+  # conflict between the capybara drivers?
+  # Spring fucking everything up?
   context 'with valid addresses' do
     before do
       @address = build(:address).address 
@@ -14,8 +20,14 @@ describe 'user submits comparison' do
     end
 
     it 'returns total count of crimes' do
-      find(:css, '#park-button').set(true)
+      require 'pry'
+      binding.pry
+
+      click('query[parks]')
       expect(page).to have_css('#compare')
+
+      require 'pry'
+      binding.pry
       page.click_on('#compare')
 #      find('input#compare').click
       expect(page).to_not have_css('.alert-box')
