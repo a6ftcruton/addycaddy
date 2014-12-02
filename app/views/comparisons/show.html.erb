@@ -1,4 +1,6 @@
-<h3 class="distance-title large-6 large-centered columns"><%= "Within #{params['radius']} miles of each address there are: " %></h3>
+<h3 class="distance-title large-6 large-centered columns">
+  <%= "Within #{params['radius']} miles of each address there are: " %>
+</h3>
 
 <h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
 <h2 class="second-address large-6 columns"><%= @second_address.address %></h2>
@@ -6,14 +8,24 @@
 <div class="first-address-results large-6 columns">
   <% @queries.each do |query| %>
     <div class="results">
-        <h4 class="small-4 small-centered columns">
-          <a href="#" class="<%= "first-address-" + query %>">
-          <%= "#{(@results.send(query.to_sym)).first.length} " + query %>
-        </a></h4>
-        <% @results.send(query.to_sym).first.map do |result| %>
-            <%= render 'conditional_results', result: result %>
-        <% end %>
+      <h4 class="small-4 small-centered columns">
+        <a href="#" class="<%= "first-address-" + query %>">
+        <%= "#{(@results.send(query.to_sym)).first.length} " + query %></a>
+      </h4>
+      <div class="result-details">
+        <table class="large-10 large-offset-1">
+          <thead>
+            <tr>
+              <th width="200">Name>
+              <th>Distance From This Address</th>
+            </tr>
+          </thead>
+          <% @results.send(query.to_sym).first.map do |result| %>
+            <%= render 'conditional_results', result: result, address: @first_address.address %>
+          <% end %>
+        </table>
       </div>
+    </div>
   <% end %>
 </div>
 
@@ -22,15 +34,20 @@
     <div class="results">
         <h4 class="small-4 small-centered columns">
           <a href="#" class="<%= "second-address-" + query %>">
-          <%= "#{(@results.send(query.to_sym)).last.length} " + query %>
-        </a></h4>
-        <% @results.send(query.to_sym).last.map do |result| %>
-            <%= render 'conditional_results', result: result %>
-        <% end %>
+          <%= "#{(@results.send(query.to_sym)).last.length} " + query %></a>
+        </h4>
+        <div class="result-details">
+          <table class="large-10 large-offset-1">
+            <thead>
+              <tr>
+                <th width="200">Name</th>
+                <th>Distance From This Address</th>
+              </tr>
+            </thead>
+            <% @results.send(query.to_sym).last.map do |result| %>
+            <%= render 'conditional_results', result: result, address: @second_address.address %>
+          <% end %>
+        </div>
       </div>
   <% end %>
 </div>
-
-    <!-- all this is just printing...use a decorator like Draper!
-    while you\'re at it, standardize these methods so you can call .name on all of them instead of ["name"] or ["location"] or .offense_type so, in Crime, create an instance method .name, do the same thing in Query... -->
-

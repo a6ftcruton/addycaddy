@@ -1,13 +1,12 @@
-    <!-- all this is just printing...use a decorator like Draper!
-    while you\'re at it, standardize these methods so you can call .name on all of them instead of ["name"] or ["location"] or .offense_type so, in Crime, create an instance method .name, do the same thing in Query... -->
-<div class="result-details">
-  <% case %>
-    <% when result.class == Crime %>
-      <li><%= result.offense_type %>&nbsp<%= result.date.to_date %></li>
-    <% when result["bcycle_stations"] %>
-      <li><%= result["location"]["crossStreet"] %></li>
-    <% else %>
-      <li><%= result["name"] %></li>        
+<tbody>
+  <tr>
+  <% if result.class == Crime %>
+    <td><%= result.offense_type %>&nbsp<%= result.date.to_date %></td>
+  <% else %>
+    <td><%= result["name"] %></td>
+    <td class="location-distance">
+      <%= Geocoder::Calculations.distance_between(result["location"]["formattedAddress"].join, address).round(2) %>
+    </td>        
   <% end %>
-</div>
-
+  </tr>
+</tbody>

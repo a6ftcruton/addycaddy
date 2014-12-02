@@ -64,7 +64,8 @@ class Query
 
   def bcycle_stations
     category_id = '4e4c9077bd41f78e849722f9'
-    response = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]
+    first_address_results = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]["venues"]
+    second_address_results = FourSquare.send_request(@second_address, radius_to_meters, category_id)["response"]["venues"]
     [first_address_results, second_address_results]
   end
   
