@@ -1,13 +1,26 @@
 require 'capybara/poltergeist'
+include Devise::TestHelpers
 
 describe 'login process' do
- 
-  it 'authenticates a user with twitter'
+    
+  before do 
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter] 
+  end
   
-  context 'successful login' do
-  end
+  it 'authenticates a user with twitter'
+    
+    context 'successful login' do
+      
+      it "twitter sign in button should lead to twitter authentication page" do
+        visit root_path
+        click_on "Sign in with Twitter"
+        User.last.uid.should == '123545'
+      end
 
-  context 'unsuccessful login' do
-  end
+    end
 
-end
+    context 'unsuccessful login' do
+    end
+
+  end

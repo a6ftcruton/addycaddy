@@ -2,7 +2,6 @@ require 'ostruct'
 
 class Query
   include FourSquare
-  @queue = :start # <-- background workers
 
   attr_reader   :results,
                 :first_address,

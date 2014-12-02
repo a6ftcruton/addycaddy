@@ -1,4 +1,5 @@
 class ComparisonsController < ApplicationController
+  before_filter :authenticate
 #  before_filter :authenticate_user!
   attr_reader :first_address, :second_address
 
@@ -16,7 +17,7 @@ class ComparisonsController < ApplicationController
       redirect_to comparisons_new_path(request.params)
     else
       @queries = params["query"].keys
-#      @results = Resque.enqueue(Query.new(params.start)) <-- background workers?
+#      @results = Resque.enqueue(ApiRequestJob, params)
       @results = Query.new(params).start
     end
   end
