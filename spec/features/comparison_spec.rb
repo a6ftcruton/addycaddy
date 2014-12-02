@@ -23,6 +23,7 @@ describe 'user submits comparison', js:true do
       require 'pry'
       binding.pry
 
+      find(:css, '.general').click
       click('query[parks]')
       expect(page).to have_css('#compare')
 
