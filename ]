@@ -73,7 +73,7 @@
         </div>
         
         <div class="category-checkbox small-centered columns">
-          <div class="center ">
+          <div class="center">
             <input type="checkbox" name="query[parks]" id="query_parks">
             <label for="query_parks">PARKS</label>
           </div>

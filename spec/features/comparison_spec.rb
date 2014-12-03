@@ -14,9 +14,9 @@ describe 'user submits comparison', js:true do
 
     it 'returns total count of crimes' do
       page.click_on 'General'
-      click_on('query[parks]')
+      expect(page).to have_content('PARKS')
+      page.find('#query_parks')
       expect(page).to have_css('#compare')
-
       page.click_on('#compare')
       expect(page).to_not have_css('.alert-box')
       expect(current_path).to eq('/comparisons/show')
