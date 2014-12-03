@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="page-wrapper large-12 large-centered columns">
+    <h1 class="page-header">About the API</h1>
+
+    <h2>AddyCaddy API Endpoints</h2>
+    <h4>AddyCaddy responds to GET requests with JSON data. Use the following API endpoint as the base URI for your queries:</h4>
+    <p>http://192.241.133.37/api/v1/comparisons</p>
+    <h4>You may also specify a JSON format as follows, though this is not required</h4>
+    <p>http://192.241.133.37/api/v1/comparisons.json</p>
+
+    <h2>AddyCaddy Query Parameters</h2>
+    <p>AddyCaddy requires that all of the following parameters are supplied for a query. first_address, second_address, radius, query. Currently, we do not support single-address queries.</p>
+    <table>
+      <tr>
+        <thead>
+          <th>Required Keys</th>
+          <th>Acceptable Values</th>
+        </thead>
+      </tr>
+        <tbody>
+          <tr>
+            <td>first_address</td>
+            <td>Address must be within City and County of Denver.<br/> 
+            Enter address details separated with a single space or with %20</td>
+          </tr>
+          <tr>
+            <td>second_address</td>
+            <td>Address must be within City and County of Denver.<br/> 
+            Enter address details separated with a single space or with %20</td>
+          </tr>
+          <tr>
+            <td>radius</td>
+            <td>Queries between 0.2 and 5.0 miles are accepted.<br/> 
+            Float precision should be rounded to the nearest tenths place decimal value.</td>
+          </tr>
+          <tr>
+            <td>query</td>
+            <td>Single queries must be of the following type and format:<br/> 
+            crimes, parks, grocery_stores, libraries, restaurants, bars, coffee_shops, museums, liquor_stores, pharmacies, light_rail_stops, theaters, movies, live_music, art_galleries, hardware_stores</td>
+          </tr>
+        </tbody>
+    </table> 
+    <h2>Example Query</h2>
+      <h4>The following is a valid query to the AddyCaddy API</h4>
+      <span>http://192.241.133.37/api/v1/comparisons?<br/>first_address=1160%20Ogden%20St%20Denver,%20CO&<br/>second_address=1550%20Blake%20St%20Denver,%20CO&<br/>radius=0.5&<br/>query=liquor_stores</span>
+    <h2>Example Response</h2>
+      <h4>If you have entered everything correctly, your JSON response should look as follows:</h4>
+      <%= image_tag("response.png") %>
+  </div>
+</div>

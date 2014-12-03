@@ -1,8 +1,8 @@
 <% if current_user %>
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
-    <li class="name"><h1><a href="#">AddyCaddy</a></h1> </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <li class="name"><h1><a href="/comparisons/new">AddyCaddy</a></h1> </li>
+    <li class="toggle-topbar menu-icon"><a href="/comparisons/new"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
@@ -13,12 +13,12 @@
 
     <!-- Right Nav Section -->
     <ul class="right">
-      <li><a href="#"><%= render partial: 'layouts/sign_in' %></a></li>
+      <li><a><%= render partial: 'layouts/sign_in' %></a></li>
       <li class="has-dropdown">
         <a href="#">Explore</a>
         <ul class="dropdown">
-          <li><a href="#">How It Works</a></li>
-          <li><a href="#">API</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/api-info">API</a></li>
         </ul>
       </li>
     </ul>

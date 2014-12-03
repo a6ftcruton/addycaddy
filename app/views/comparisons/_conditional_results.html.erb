@@ -1,12 +1,16 @@
 <tbody>
   <tr>
-  <% if result.class == Crime %>
-    <td><%= result.offense_type %>&nbsp<%= result.date.to_date %></td>
-  <% else %>
-    <td><%= result["name"] %></td>
-    <td class="location-distance">
-      <%= Geocoder::Calculations.distance_between(result["location"]["formattedAddress"].join, address).round(2) %>
-    </td>        
-  <% end %>
+    <% if result.class == Crime %>
+      <td><%= result.offense_type %></td>
+      <td><%= result.date.to_date %></td>
+    <% else %>
+      <td><%= result["name"] %></td>
+      <td class="location-distance">
+      <% r = Geocoder::Calculations.distance_between(result["location"]["formattedAddress"].join, address).round(2) %>
+        <% if !r.nan? %>
+          <%= r %>
+        <% end %>
+      </td>        
+    <% end %>
   </tr>
 </tbody>

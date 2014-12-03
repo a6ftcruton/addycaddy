@@ -2,7 +2,8 @@ $(document).ready(function() {
   fadeFlashNotices(); 
   categoryClick(); 
   showCriteriaDetails();
-
+  preventLinkDefault();
+  
   function fadeFlashNotices() {
     $('.alert-box').fadeIn(800).delay(3000).fadeOut(800);
   }
@@ -18,5 +19,11 @@ $(document).ready(function() {
     $('.results').click(function() {
       $(this).find('.result-details').fadeToggle("slow"); 
     }); 
+  }
+  
+  function preventLinkDefault() { 
+    $('a[href="#"]').click(function(e) { 
+      e.preventDefault(); 
+    });
   }
 });

@@ -36,29 +36,29 @@
       <div class="convenience-group criteria-group small-8 small-centered columns">
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[liquor_stores]" id="query[liquor_stores]">
-            <label for="query[liquor_stores]">LIQUOR STORES</label>
+            <input type="checkbox" name="query[liquor_stores]" id="query_liquor_stores">
+            <label for="query_liquor_stores">LIQUOR STORES</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[pharmacies]" id="query[pharmacies]">
-            <label for="query[pharmacies]">PHARMACIES</label>
+            <input type="checkbox" name="query[pharmacies]" id="query_pharmacies">
+            <label for="query_pharmacies">PHARMACIES</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[hardware_stores]" id="query[hardware_stores]">
-            <label for="query[hardware_stores]">HARDWARE STORES</label>
+            <input type="checkbox" name="query[hardware_stores]" id="query_hardware_stores">
+            <label for="query_hardware_stores">HARDWARE STORES</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[libraries]" id="query[libraries]">
-            <label for="query[libraries]">LIBRARIES</label>
+            <input type="checkbox" name="query[libraries]" id="query_libraries">
+            <label for="query_libraries">LIBRARIES</label>
           </div>
         </div>
       </div> 
@@ -67,8 +67,8 @@
       <div class="general-group criteria-group small-8 small-centered columns">
         <div class="category-checkbox small-centered columns">
           <div class="center ">
-            <input type="checkbox" name="query[crimes]" id="query[crimes]">
-            <label for="query[crimes]">SAFETY </label>
+            <input type="checkbox" name="query[crimes]" id="query_crimes">
+            <label for="query_crimes">SAFETY </label>
           </div>
         </div>
         
@@ -84,29 +84,29 @@
       <div class="things-to-do-group criteria-group small-8 small-centered columns">
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[theaters]" id="query[theaters]">
-            <label for="query[theaters]">THEATERS</label>
+            <input type="checkbox" name="query[theaters]" id="query_theaters">
+            <label for="query_theaters">THEATERS</label>
           </div>
         </div>
       
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[movies]" id="query[movies]">
-            <label for="query[movies]">MOVIES</label>
+            <input type="checkbox" name="query[movies]" id="query_movies">
+            <label for="query_movies">MOVIES</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[museums]" id="query[museums]">
-            <label for="query[museums]">MUSEUMS</label>
+            <input type="checkbox" name="query[museums]" id="query_museums">
+            <label for="query_museums">MUSEUMS</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[art_galleries]" id="query[art_galleries]">
-            <label for="query[art_galleries]">ART GALLERIES</label>
+            <input type="checkbox" name="query[art_galleries]" id="query_art_galleries">
+            <label for="query_art_galleries">ART GALLERIES</label>
           </div>
         </div>
       </div> 
@@ -115,22 +115,22 @@
       <div class="transportation-group criteria-group small-8 small-centered columns">
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[bcycle_stations]" id="query[bcycle_stations]">
-            <label for="query[bcycle_stations]">B-CYCLE STATIONS</label>
+            <input type="checkbox" name="query[bcycle_stations]" id="query_bcycle_stations">
+            <label for="query_bcycle_stations">B-CYCLE STATIONS</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[bus_stops]" id="query[bus_stops]">
-            <label for="query[bus_stops]">BUS STOPS</label>
+            <input type="checkbox" name="query[bus_stops]" id="query_bus_stops">
+            <label for="query_bus_stops">BUS STOPS</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[light_rail_stops]" id="query[light_rail_stops]">
-            <label for="query[light_rail_stops]">LIGHT RAIL STOPS</label>
+            <input type="checkbox" name="query[light_rail_stops]" id="query_light_rail_stops">
+            <label for="query_light_rail_stops">LIGHT RAIL STOPS</label>
           </div>
         </div>
       </div> 
@@ -139,22 +139,22 @@
         
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[restaurants]" id="query[restaurants]">
-            <label for="query[restaurants]">RESTAURANTS</label>
+            <input type="checkbox" name="query[restaurants]" id="query_restaurants">
+            <label for="query_restaurants">RESTAURANTS</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[bars]" id="query[bars]">
-            <label for="query[bars]">BARS</label>
+            <input type="checkbox" name="query[bars]" id="query_bars">
+            <label for="query_bars">BARS</label>
           </div>
         </div>
 
         <div class="category-checkbox small-centered columns">
           <div class="center">
-            <input type="checkbox" name="query[coffee_shops]" id="query[coffee_shops]">
-            <label for="query[coffee_shops]">COFFEE SHOPS</label>
+            <input type="checkbox" name="query[coffee_shops]" id="query_coffee_shops">
+            <label for="query_coffee_shops">COFFEE SHOPS</label>
           </div>
         </div>
       </div>

@@ -15,12 +15,12 @@ ul.button-group > li {
 }
 .criteria-group{
   padding: 5%;
-  display: none;
   background-color: darkgray;
   border-radius: 10px;
   -webkit-box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41), inset -1px 10px 8px 0px rgba(0,0,0,0.41);
   -moz-box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41), inset -1px 10px 8px 0px rgba(0,0,0,0.41);
   box-shadow: inset 7px -2px 5px 0px rgba(0,0,0,0.41) inset -1px 10px 8px 0px rgba(0,0,0,0.41);
+  display: none;
 }
 .radius-dropdown {
   margin-top: 5%;
@@ -42,7 +42,10 @@ ul.button-group > li {
  width: 350px;
 }
 input[type="checkbox"] {
-	display: none;
+	visibility: hidden;
+  width: 1px;
+  height: auto;
+  //FIXME
 }
 
 input[type="checkbox"] + label {
@@ -64,7 +67,6 @@ input[id^="query"] + label {
     text-align: left;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-    margin-bottom: 4%;
 }
 [id^="query"] + label:hover  {
   border-top: 1px solid rgba(0, 0, 0, 0.8);

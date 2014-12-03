@@ -1,5 +1,5 @@
 <h3 class="distance-title large-6 large-centered columns">
-  <%= "Within #{params['radius']} miles of each address there are: " %>
+<span>Within <span class="radius-standout"><%="#{params['radius']} " %></span>miles of each address there are: </span>
 </h3>
 
 <h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
@@ -10,14 +10,19 @@
     <div class="results">
       <h4 class="small-4 small-centered columns">
         <a href="#" class="<%= "first-address-" + query %>">
-        <%= "#{(@results.send(query.to_sym)).first.length} " + query %></a>
+        <%= "#{(@results.send(query.to_sym)).first.length} " + query.formatted %></a>
       </h4>
       <div class="result-details">
         <table class="large-10 large-offset-1">
           <thead>
             <tr>
-              <th width="200">Name</th>
-              <th>Distance From This Address</th>
+              <% if query == "crimes" %>
+                <th class="theader" width="150">Offense Type</th>
+                <th class="theader" width="100">Date Reported</th>
+              <% else %>  
+                <th class="theader" width="150">Name</th>
+                <th class="theader" width="100">Distance From This Address</th>
+              <% end %>
             </tr>
           </thead>
           <% @results.send(query.to_sym).first.map do |result| %>
@@ -32,22 +37,29 @@
 <div class="second-address-results large-6 columns">
   <% @queries.each do |query| %>
     <div class="results">
-        <h4 class="small-4 small-centered columns">
-          <a href="#" class="<%= "second-address-" + query %>">
-          <%= "#{(@results.send(query.to_sym)).last.length} " + query %></a>
-        </h4>
-        <div class="result-details">
-          <table class="large-10 large-offset-1">
-            <thead>
-              <tr>
-                <th width="200">Name</th>
-                <th>Distance From This Address</th>
-              </tr>
-            </thead>
-            <% @results.send(query.to_sym).last.map do |result| %>
+      <h4 class="small-4 small-centered columns">
+        <a href="#" class="<%= "second-address-" + query %>">
+        <%= "#{(@results.send(query.to_sym)).last.length} " + query.formatted %></a>
+      </h4>
+      <div class="result-details">
+        <table class="large-10 large-offset-1">
+          <thead>
+            <tr>
+              <% if query == "crimes" %>
+                <th class="theader" width="150">Offense Type</th>
+                <th class="theader" width="100">Date Reported</th>
+              <% else %>  
+                <th class="theader" width="150">Name</th>
+                <th class="theader" width="100">Distance From This Address</th>
+              <% end %>
+            </tr>
+          </thead>
+          <% @results.send(query.to_sym).last.map do |result| %>
             <%= render 'conditional_results', result: result, address: @second_address.address %>
           <% end %>
-        </div>
+        </table>
       </div>
+    </div>
   <% end %>
 </div>
+

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/comparisons/show', to: 'comparisons#show'
   root to: 'sessions#new'
 
+  get '/how-it-works', to: 'about#show' 
+  get '/api-info', to: 'about#api_info' 
+    
   namespace :api do
     namespace :v1 do
       resources :comparisons, only: [:index]
