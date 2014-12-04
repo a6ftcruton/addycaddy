@@ -15,11 +15,9 @@ gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'omniauth-digitalocean'
 gem 'figaro'
 gem 'geocoder'
 gem 'httparty'
-gem 'resque'
 
 group :development, :test do
   gem 'spring'

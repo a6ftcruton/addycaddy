@@ -2,7 +2,6 @@ require 'ostruct'
 
 class Query
   include FourSquare
-
   attr_reader   :results,
                 :first_address,
                 :second_address,
