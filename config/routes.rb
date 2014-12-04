@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-#  mount Resque::Server.new, at: "/resque" <-- background workersj
 
   devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks" }
   
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/how-it-works', to: 'about#show' 
   get '/api-info', to: 'about#api_info' 
+
+  post '/send-email', to: 'email#send_email'
     
   namespace :api do
     namespace :v1 do

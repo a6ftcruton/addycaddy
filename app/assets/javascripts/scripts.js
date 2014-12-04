@@ -3,6 +3,8 @@ $(document).ready(function() {
   categoryClick(); 
   showCriteriaDetails();
   preventLinkDefault();
+  toggleUserEmailForm(); 
+  hideUserEmailForm();
   
   function fadeFlashNotices() {
     $('.alert-box').fadeIn(800).delay(3000).fadeOut(800);
@@ -26,4 +28,17 @@ $(document).ready(function() {
       e.preventDefault(); 
     });
   }
+  
+  function toggleUserEmailForm() {
+    $('.footer-msg').click(function(e) {
+      e.preventDefault();
+      $('.email_popup').show();   
+    }); 
+    $('.show-container').click(function(e) {
+      $('.email_popup').hide();   
+    });
+  } 
+ 
+  function hideUserEmailForm() {
+      }
 });

@@ -18,6 +18,8 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'geocoder'
 gem 'httparty'
+gem 'resque'
+gem 'sendgrid'
 
 group :development, :test do
   gem 'spring'

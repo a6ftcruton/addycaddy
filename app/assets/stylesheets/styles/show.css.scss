@@ -24,3 +24,34 @@
 a {
   color: #924973;
 }
+#sticky_footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 45px;
+  width: 100%;
+  color: white;
+  background-color: #333333;
+  padding: 5px;
+}
+.footer-msg {
+  font-family: Georgia, sans-serif;
+  font-size: 18px;
+  color: white;
+}
+.footer-msg:active,
+.footer-msg:focus {
+  color: white;
+}
+.email_popup {
+  posiiton: absolute;
+  bottom: 0;
+  right: 0;
+  height: 150px;
+  width: 350px;
+  background-color: #924973;
+  padding: 50px 75px ;
+  display: none;
+  text-align:center;
+  float: right;
+}

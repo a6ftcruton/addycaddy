@@ -1,65 +1,83 @@
-<h3 class="distance-title large-6 large-centered columns">
-<span>Within <span class="radius-standout"><%="#{params['radius']} " %></span>miles of each address there are: </span>
-</h3>
+<div class="show-container">
+  <h3 class="distance-title large-6 large-centered columns">
+  <span>Within <span class="radius-standout"><%="#{params['radius']} " %></span>miles of each address there are: </span>
+  </h3>
 
-<h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
-<h2 class="second-address large-6 columns"><%= @second_address.address %></h2>
+  <h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
+  <h2 class="second-address large-6 columns"><%= @second_address.address %></h2>
 
-<div class="first-address-results large-6 columns">
-  <% @queries.each do |query| %>
-    <div class="results">
-      <h4 class="small-4 small-centered columns">
-        <a href="#" class="<%= "first-address-" + query %>">
-        <%= "#{(@results.send(query.to_sym)).first.length} " + query.formatted %></a>
-      </h4>
-      <div class="result-details">
-        <table class="large-10 large-offset-1">
-          <thead>
-            <tr>
-              <% if query == "crimes" %>
-                <th class="theader" width="150">Offense Type</th>
-                <th class="theader" width="100">Date Reported</th>
-              <% else %>  
-                <th class="theader" width="150">Name</th>
-                <th class="theader" width="100">Distance From This Address</th>
-              <% end %>
-            </tr>
-          </thead>
-          <% @results.send(query.to_sym).first.map do |result| %>
-            <%= render 'conditional_results', result: result, address: @first_address.address %>
-          <% end %>
-        </table>
+  <div class="first-address-results large-6 columns">
+    <% @queries.each do |query| %>
+      <div class="results">
+        <h4 class="small-4 small-centered columns">
+          <a href="#" class="<%= "first-address-" + query %>">
+          <%= "#{(@results.send(query.to_sym)).first.length} " + query.formatted %></a>
+        </h4>
+        <div class="result-details">
+          <table class="large-10 large-offset-1">
+            <thead>
+              <tr>
+                <% if query == "crimes" %>
+                  <th class="theader" width="150">Offense Type</th>
+                  <th class="theader" width="100">Date Reported</th>
+                <% else %>  
+                  <th class="theader" width="150">Name</th>
+                  <th class="theader" width="100">Distance From This Address</th>
+                <% end %>
+              </tr>
+            </thead>
+            <% @results.send(query.to_sym).first.map do |result| %>
+              <%= render 'conditional_results', result: result, address: @first_address.address %>
+            <% end %>
+          </table>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <div class="second-address-results large-6 columns">
+    <% @queries.each do |query| %>
+      <div class="results">
+        <h4 class="small-4 small-centered columns">
+          <a href="#" class="<%= "second-address-" + query %>">
+          <%= "#{(@results.send(query.to_sym)).last.length} " + query.formatted %></a>
+        </h4>
+        <div class="result-details">
+          <table class="large-10 large-offset-1">
+            <thead>
+              <tr>
+                <% if query == "crimes" %>
+                  <th class="theader" width="150">Offense Type</th>
+                  <th class="theader" width="100">Date Reported</th>
+                <% else %>  
+                  <th class="theader" width="150">Name</th>
+                  <th class="theader" width="100">Distance From This Address</th>
+                <% end %>
+              </tr>
+            </thead>
+            <% @results.send(query.to_sym).last.map do |result| %>
+              <%= render 'conditional_results', result: result, address: @second_address.address %>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+    <div class="row">
+  </div>
 </div>
-
-<div class="second-address-results large-6 columns">
-  <% @queries.each do |query| %>
-    <div class="results">
-      <h4 class="small-4 small-centered columns">
-        <a href="#" class="<%= "second-address-" + query %>">
-        <%= "#{(@results.send(query.to_sym)).last.length} " + query.formatted %></a>
-      </h4>
-      <div class="result-details">
-        <table class="large-10 large-offset-1">
-          <thead>
-            <tr>
-              <% if query == "crimes" %>
-                <th class="theader" width="150">Offense Type</th>
-                <th class="theader" width="100">Date Reported</th>
-              <% else %>  
-                <th class="theader" width="150">Name</th>
-                <th class="theader" width="100">Distance From This Address</th>
-              <% end %>
-            </tr>
-          </thead>
-          <% @results.send(query.to_sym).last.map do |result| %>
-            <%= render 'conditional_results', result: result, address: @second_address.address %>
-          <% end %>
-        </table>
-      </div>
+    <div id="sticky_footer" class="text-center">
+      <span><i class="fi-mail"></i>&nbsp
+        <a href="#" class="footer-msg">Want a copy of these results?</a>&nbsp<i class="fi-mail"></i>
+      </span>
     </div>
-  <% end %>
+<div class="email_popup">
+  <div class="row">
+    <%= form_tag("/send-email", method: 'post') do%>
+      <%= text_field_tag :user_email, nil, placeholder: "Enter email here to receive a copy of these results" %>
+      <%= hidden_field_tag :results, @results %>
+      <%= submit_tag "Send Results", class: "postfix" %>
+    <% end %>
+  </div>
 </div>
 
