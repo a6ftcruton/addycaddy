@@ -14,7 +14,7 @@
       <div class="row">
         <div class="large-12 columns">
           <ul class="button-group">
-            <h3>Choose Categories to Compare</h3>
+            <h3>Choose what you want in your neighborhood</h3>
             <li><a href="javascript:void(0)" class="button category-button general">General</a></li>
             <li><a class="button category-button convenience">Convenience
               <i class="fi-compass category-icon"></i></a>
@@ -162,7 +162,7 @@
     
     <div class="radius">
       <h4>Search within 
-        <%= select_tag :radius, options_for_select(['0.1', '0.2', '0.3', '0.4', '0.5', '0.8', '1.0', '1.5', '2.0', '5.0'], '0.3'), class: "radius-dropdown small-2 small-centered" %> miles of each address
+        <%= select_tag :radius, options_for_select(['0.1', '0.2', '0.3', '0.4', '0.5', '0.8', '1.0', '1.5', '2.0', '5.0'], '0.3'), class: "radius-dropdown small-1 small-centered" %> miles of each address
       </h4>
     </div>
         <%= submit_tag "COMPARE", id: "compare", class: "button radius round" %>

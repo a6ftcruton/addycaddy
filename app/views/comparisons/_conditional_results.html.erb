@@ -1,7 +1,7 @@
 <tbody>
   <tr>
     <% if result.class == Crime %>
-      <td><%= result.offense_type %></td>
+      <td><%= result.offense_type.formatted %></td>
       <td><%= result.date.to_date %></td>
     <% else %>
       <td><%= result["name"] %></td>

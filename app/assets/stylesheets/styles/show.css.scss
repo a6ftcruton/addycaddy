@@ -43,15 +43,57 @@ a {
 .footer-msg:focus {
   color: white;
 }
-.email_popup {
-  posiiton: absolute;
+div.email_popup {
+  posiiton: fixed;
   bottom: 0;
-  right: 0;
-  height: 150px;
-  width: 350px;
-  background-color: #924973;
-  padding: 50px 75px ;
+  width: 100%;
   display: none;
+  }
+.email-inner {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  width: 450px;
+  background-color: #924973;
+  padding: 50px;
+  padding-top: 5px;
   text-align:center;
-  float: right;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+  -moz-box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+  box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
+#user_email {
+  border-radius: 10px;
+  height: 50px;
+}
+input.postfix {
+  border-radius: 10px;
+  font-faimily: Oswald, sans-serif;
+  background-color: darkgray;
+  color: white;
+}
+.close-popup {
+  color: white;
+  font: 14px/100% arial, sans-serif;
+  position: relative;
+  float: right;
+  right: 5px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-right: -20px;
+  padding: 8px 12px;
+}
+.close-popup:hover {
+  background-color: #488249;
+  color: #924973; 
+}
+.close-popup:after {
+  content: 'X';
+}
+

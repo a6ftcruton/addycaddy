@@ -72,7 +72,8 @@
       </span>
     </div>
 <div class="email_popup">
-  <div class="row">
+  <div class="row email-inner">
+    <button class="close-popup" href="javascript:void(0)"></button>
     <%= form_tag("/send-email", method: 'post') do%>
       <%= text_field_tag :user_email, nil, placeholder: "Enter email here to receive a copy of these results" %>
       <%= hidden_field_tag :results, @results %>
