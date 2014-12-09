@@ -1,3 +1,8 @@
-AddyCaddy ![alt text](https://github.com/a6ftcruton/addycaddy/blob/master/app/assets/images/logo.svg "Logo Title Text 1")
-========
+AddyCaddy 
+
+![alt text][logo]
+
+[logo]: https://github.com/a6ftcruton/airlift/blob/master/app/assets/images/AirLift-logo.png "Airlift Logo"
+===========
+
 
