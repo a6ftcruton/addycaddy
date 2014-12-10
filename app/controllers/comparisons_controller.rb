@@ -1,5 +1,5 @@
 class ComparisonsController < ApplicationController
-  before_filter :authenticate 
+#  before_filter :authenticate 
   attr_reader :first_address, :second_address
 
   def new

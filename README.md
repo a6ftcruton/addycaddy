@@ -17,9 +17,9 @@ For example, if you have to walk the dog every morning, have young children, and
 
 
 
-#####A full explanation of how to use the app with screenshots can be found [here](http://addycaddy.com/how-it-works)
+#####A full explanation of how to use the app with screenshots can be found [here](http://addycaddy.info/how-it-works)
 
-#####For API documentation, see [here](http://addycaddy.com/api-info) Note: login required
+#####For API documentation, see [here](http://addycaddy.info/api-info) Note: login required
 
 #####Contributing:
 For questions, comments, or suggestion, please [submit an issue.](https://github.com/a6ftcruton/addycaddy/issues)
