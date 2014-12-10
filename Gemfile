@@ -39,4 +39,5 @@ group :test do
   gem 'vcr'
   gem 'fakeweb'
   gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: nil
 end
