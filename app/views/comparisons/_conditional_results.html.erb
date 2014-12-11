@@ -3,6 +3,9 @@
     <% if result.class == Crime %>
       <td><%= result.offense_type.formatted %></td>
       <td><%= result.date.to_date %></td>
+    <% elsif %>
+      <td><%= result.name %></td>
+      <td><%= Geocoder::Calculations.distance_between(result.address, address).round(2) %></td>
     <% else %>
       <td><%= result["name"] %></td>
       <td class="location-distance">

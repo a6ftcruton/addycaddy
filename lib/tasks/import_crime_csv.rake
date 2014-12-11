@@ -7,10 +7,8 @@ namespace :csv_importer do
   task :write_crimes_data => :environment do
     puts "Processing..."
 
-    unless File.exist?('public/crime_data.csv')
       uri      = URI('http://data.denvergov.org/download/gis/crime/csv/crime.csv')
       csv_text = Net::HTTP.get(uri)
-    end
 
     File.open('public/crime_data.csv', 'w+') { |file| file.write(csv_text) }
     
@@ -24,4 +22,25 @@ namespace :csv_importer do
 
     end
   end
+
+  desc "Write b_cycle data to BCycle table"
+  task :write_b_cycle_data => :environment do
+    puts "Processing..."
+
+#    unless File.exist?('public/b_cycle_data.csv')
+      uri      = URI('http://data.denvergov.org/download/gis/b_cycle_stations/csv/b_cycle_stations.csv')
+      csv_text = Net::HTTP.get(uri)
+#    end
+
+  File.open('public/b_cycle_data.csv', 'w+') { |file| file.write(csv_text) }
+    
+    CSV.foreach('public/b_cycle_data.csv', headers: true, header_converters: :symbol) do |row|
+      station = BCycle.find_or_create_by(
+        name:    row[:station_name],
+        address: row[:station_address]
+       )
+       puts station
+    end
+  end
+
 end
