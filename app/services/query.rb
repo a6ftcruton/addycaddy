@@ -65,10 +65,6 @@ class Query
     first_address_results = BCycle.near(@first_address, radius.to_f)
     second_address_results = BCycle.near(@second_address, radius.to_f)
     [first_address_results, second_address_results]
-#    category_id = '4e4c9077bd41f78e849722f9'
-#    first_address_results = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]["venues"]
-#    second_address_results = FourSquare.send_request(@second_address, radius_to_meters, category_id)["response"]["venues"]
-#    [first_address_results, second_address_results]
   end
   
   def bars

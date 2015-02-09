@@ -12,6 +12,7 @@ RSpec.describe Address, :type => :model do
   end
 
   it 'has a city' do
+    address = build(:address, address: "1550 Blake St Denver, CO 80206")
     city = address.city 
     expect(city).to eq "Denver"
   end

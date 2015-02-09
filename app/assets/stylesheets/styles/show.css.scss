@@ -44,11 +44,11 @@ a {
   color: white;
 }
 div.email_popup {
-  posiiton: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: 5%  ;
   width: 100%;
   display: none;
-  }
+}
 .email-inner {
   margin-left: auto;
   margin-right: auto;

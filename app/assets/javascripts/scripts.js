@@ -1,10 +1,11 @@
 $(document).ready(function() {
+  var smooth = 400;
   fadeFlashNotices(); 
   categoryClick(); 
   showCriteriaDetails();
   preventLinkDefault();
   toggleUserEmailForm(); 
-  hideUserEmailForm();
+  closeEmailModal();
   
   function fadeFlashNotices() {
     $('.alert-box').fadeIn(800).delay(3000).fadeOut(800);
@@ -18,8 +19,8 @@ $(document).ready(function() {
   }
   
   function showCriteriaDetails() {
-    $('.results').click(function() {
-      $(this).find('.result-details').fadeToggle("slow"); 
+    $('.criteria-details').click(function() {
+      $(this).closest('.results').find('.result-details').fadeToggle(smooth); 
     }); 
   }
   
@@ -31,14 +32,27 @@ $(document).ready(function() {
   
   function toggleUserEmailForm() {
     $('.footer-msg').click(function(e) {
-      e.preventDefault();
-      $('.email_popup').show();   
+      $('.email_popup').fadeToggle(smooth);   
+      e.stopPropagation();
+      closeEmailModal();
     }); 
-    $('.show-container').click(function(e) {
-      $('.email_popup').hide();   
-    });
   } 
  
-  function hideUserEmailForm() {
-      }
+  function closeEmailModal() {
+    $(document).click(function(e) {
+      var modal = $('.email-inner'); 
+      var form = $('#user_email');
+      if( !$(modal).is(e.target) && !$(form).is(e.target)) {
+        fadePopup();
+      } 
+    });
+
+    $('.close-popup').click(function(e) {
+      fadePopup();
+    });
+  }
+
+  function fadePopup() {
+    $('.email_popup').fadeOut(smooth);   
+  }
 });
