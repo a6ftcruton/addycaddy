@@ -20,6 +20,7 @@ gem 'geocoder'
 gem 'httparty'
 gem 'resque'
 gem 'sendgrid'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'spring'
