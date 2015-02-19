@@ -19,7 +19,7 @@ namespace :csv_importer do
         latitude:     row[:geo_lat].to_f,
         date:         row[:reported_date]
        )
-
+       sleep 0.2 
     end
   end
 
@@ -27,10 +27,8 @@ namespace :csv_importer do
   task :write_b_cycle_data => :environment do
     puts "Processing..."
 
-#    unless File.exist?('public/b_cycle_data.csv')
       uri      = URI('http://data.denvergov.org/download/gis/b_cycle_stations/csv/b_cycle_stations.csv')
       csv_text = Net::HTTP.get(uri)
-#    end
 
   File.open('public/b_cycle_data.csv', 'w+') { |file| file.write(csv_text) }
     
@@ -39,6 +37,7 @@ namespace :csv_importer do
         name:    row[:station_name],
         address: row[:station_address]
        )
+       sleep 0.2 
        puts station
     end
   end
