@@ -12,4 +12,7 @@ module FourSquare
     get("/search", query: { near: address, radius: radius, categoryId: criteria })
   end
   
+  def self.all_denver_results(category_id)
+    get("/search", query: { near: "Denver,CO", categoryId: category_id})
+  end
 end
