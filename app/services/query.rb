@@ -34,16 +34,14 @@ class Query
   end
 
   def parks
-    category_id = "4bf58dd8d48988d163941735"
-    first_address_results = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]["venues"]
-    second_address_results = FourSquare.send_request(@second_address, radius_to_meters, category_id)["response"]["venues"]
-    response = [first_address_results, second_address_results]
+    first_address_results = Park.near(@first_address, radius.to_f)
+    second_address_results = Park.near(@second_address, radius.to_f)
+    [first_address_results, second_address_results]
   end
   
   def grocery_stores
-    category_id = '4bf58dd8d48988d118951735'
-    first_address_results = FourSquare.send_request(@first_address, radius_to_meters, category_id)["response"]["venues"]
-    second_address_results = FourSquare.send_request(@second_address, radius_to_meters, category_id)["response"]["venues"]
+    first_address_results = GroceryStore.near(@first_address, radius.to_f)
+    second_address_results = GroceryStore.near(@second_address, radius.to_f)
     [first_address_results, second_address_results]
   end
 

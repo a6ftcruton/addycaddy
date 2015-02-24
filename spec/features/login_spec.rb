@@ -12,7 +12,7 @@ describe 'login process' do
     
     context 'successful login' do
       
-      it "twitter sign in button should lead to twitter authentication page" do
+      it "twitter sign in button" do
         visit root_path
         click_on "Sign in with Twitter"
         User.last.uid.should == '123545'
