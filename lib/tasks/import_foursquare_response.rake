@@ -1,6 +1,6 @@
 require 'four_square'
 
-namespace :fetch_foursquare_data do
+namespace :import_foursquare_response do
   include FourSquare
 
   desc "Load database with results of API calls"
@@ -12,12 +12,12 @@ namespace :fetch_foursquare_data do
     result_count = 0
 
     Table = Struct.new(:table, :category_id)
+    # eventually move the "tables" out into a constant or module
     tables = { 
       "Park": "4bf58dd8d48988d163941735",
       "GroceryStore": "4bf58dd8d48988d118951735",
       "Library": "4bf58dd8d48988d12f941735",
-      "Restaurant": "4d4b7105d754a06374d81259",
-      "Bar":"4bf58dd8d48988d11b941735,4bf58dd8d48988d121941735,4bf58dd8d48988d118941735" 
+      "Restaurant": "4d4b7105d754a06374d81259"
     }
 
     def impose_struct(data)
