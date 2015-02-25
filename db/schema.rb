@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225010208) do
+ActiveRecord::Schema.define(version: 20150225181802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20150225010208) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "art_galleries", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
   end
 
   create_table "b_cycles", force: true do |t|
@@ -32,6 +39,20 @@ ActiveRecord::Schema.define(version: 20150225010208) do
   end
 
   create_table "bars", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "bus_stops", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "coffee_shops", force: true do |t|
     t.string "name"
     t.float  "latitude"
     t.float  "longitude"
@@ -52,7 +73,49 @@ ActiveRecord::Schema.define(version: 20150225010208) do
     t.string "address"
   end
 
+  create_table "hardware_stores", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
   create_table "libraries", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "light_rail_stops", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "liquor_stores", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "live_musics", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "movies", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "museums", force: true do |t|
     t.string "name"
     t.float  "latitude"
     t.float  "longitude"
@@ -66,7 +129,21 @@ ActiveRecord::Schema.define(version: 20150225010208) do
     t.string "address"
   end
 
+  create_table "pharmacies", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
   create_table "restaurants", force: true do |t|
+    t.string "name"
+    t.float  "latitude"
+    t.float  "longitude"
+    t.string "address"
+  end
+
+  create_table "theaters", force: true do |t|
     t.string "name"
     t.float  "latitude"
     t.float  "longitude"

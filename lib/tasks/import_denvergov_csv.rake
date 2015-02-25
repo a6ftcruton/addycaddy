@@ -1,7 +1,7 @@
 require 'csv'
 require 'net/http'
 
-namespace :csv_importer do
+namespace :import_denvergov_csv do
 
   desc "Write updated crime data to Crimes table"
   task :write_crimes_data => :environment do
