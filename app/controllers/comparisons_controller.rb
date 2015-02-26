@@ -1,4 +1,7 @@
 class ComparisonsController < ApplicationController
+  include GoogleMaps
+  respond_to :json, :xml
+
 #  before_filter :authenticate 
   attr_reader :first_address, :second_address
 
@@ -8,6 +11,9 @@ class ComparisonsController < ApplicationController
   def show
     @first_address = Address.new(params["first_address"])
     @second_address = Address.new(params["second_address"])
+    #FIX (move to model?)
+    @street_view = GoogleMaps.fetch_street_view(params["first_address"])
+
     if @first_address.invalid?
       flash[:notice] = @first_address.errors.full_messages
       redirect_to :back    

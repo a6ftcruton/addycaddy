@@ -5,6 +5,7 @@
       <td><%= result.date.to_date %></td>
     <% elsif result.respond_to?(:name) %>
       <td><%= result.name %></td>
+      <!-- <td><%#= result.name %></td> ADD this functionality later -->
       <td><%= Geocoder::Calculations.distance_between(result.address, address).round(2) %></td>
     <% else %>
       <td><%= result["name"] %></td>

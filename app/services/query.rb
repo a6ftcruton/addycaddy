@@ -28,8 +28,8 @@ class Query
   end
 
   def crimes
-    first_address_results = Crime.current_year.near(@first_address, radius.to_f)
-    second_address_results = Crime.current_year.near(@second_address, radius.to_f)
+    first_address_results = Crime.near(@first_address, radius.to_f)
+    second_address_results = Crime.near(@second_address, radius.to_f)
     [first_address_results, second_address_results]
   end
 

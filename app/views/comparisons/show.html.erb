@@ -3,6 +3,7 @@
   <span>Within <span class="radius-standout"><%="#{params['radius']} " %></span>miles of each address there are: </span>
   </h3>
 
+  <%= image_tag @street_view %>
   <h2 class="first-address large-6 columns"><%= @first_address.address  %></h2>
   <h2 class="second-address large-6 columns"><%= @second_address.address %></h2>
 

@@ -36,27 +36,6 @@ namespace :fetch_foursquare_data do
         )
       end
     end
-#    category_id = "4bf58dd8d48988d163941735"
-#    results = FourSquare.all_denver_results(center, radius, category_id)["response"]["venues"]
-#
-#    results.each do |result|
-#      puts result_count += 1
-#      puts result["name"]
-#      Park.find_or_create_by(
-#        name: result["name"],
-#        latitude: result["location"]["lat"].to_f,
-#        longitude: result["location"]["lng"].to_f
-#      )
-#    end
+
   end
 end
-
-
-# Next Steps:
-# --------------------
-# FourSquare.all_denver_results(table, category_id)["response"]["venues"]
-#   table.find_or_creat_by <- where 'table' is the model name?
-#
-#   then create a rake task that runs for each model relying on these api calls
-#
-#   next: rewrite method being called in Query to return results from my database instead of from an API call
