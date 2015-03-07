@@ -6,7 +6,7 @@ class Address
   validates :city, 
             inclusion: { in: ["Denver"], message: "must be located in Denver." }, 
             if: 'address.present?'
-  validates :address, presence: { message: " cannot be blank." } 
+  validates :address, presence: { message: " cannot be blank." }, on: [:new, :show] 
 
   def initialize(address)
     @address = address
