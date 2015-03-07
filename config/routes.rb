@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   
   get '/comparisons/new', to: 'comparisons#new'
   get '/comparisons/show', to: 'comparisons#show'
+
+  scope '/comparisons' do
+    resources :maps, only: [:index]
+  end
+
   root to: 'sessions#new'
 
   get '/how-it-works', to: 'about#show' 
