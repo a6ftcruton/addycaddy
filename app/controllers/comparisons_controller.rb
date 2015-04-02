@@ -2,7 +2,7 @@ class ComparisonsController < ApplicationController
   include GoogleMaps
   respond_to :json, :xml
 
-#  before_filter :authenticate 
+  # before_filter :authenticate 
   attr_reader :first_address, :second_address
 
   def new

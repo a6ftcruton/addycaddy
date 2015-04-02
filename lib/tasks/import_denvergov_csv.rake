@@ -15,7 +15,8 @@ namespace :import_denvergov_csv do
     CSV.foreach('public/crime_data.csv', headers: true, header_converters: :symbol) do |row|
       #get rid of Crime scope in model if this works
       #also try delete_if on csv rows
-      if row[:reported_date] > (Date.today - 1.year).to_s
+      if row[:reported_date] > (Date.today - 1.year).to_s && !row[:offense_type_id].include?("traf") 
+
         crime = Crime.find_or_create_by(
           offense_type: row[:offense_type_id],
           longitude:    row[:geo_lon].to_f,

@@ -1,3 +1,6 @@
+*:focus {
+  outline: 0;
+}
 #first_address,
 #second_address {
   height: 50px;
@@ -17,7 +20,7 @@
 }
 ul.button-group {
   text-align: center;
-  padding: 1% 15% 3%;
+  padding: 1% 5% 3%;
 }
 ul.button-group > li {
   float: none;
@@ -131,7 +134,8 @@ input[id^="query"] + label {
 }
 #compare {
   font-size: 1.8rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
   border: 2px solid white;
   background-color: #488249;
   -webkit-box-shadow: 0px 2px 0px rgba(0,0,0,.4), 0px 4px 5px rgba(0,0,0,.5);
