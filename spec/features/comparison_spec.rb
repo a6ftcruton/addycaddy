@@ -57,15 +57,13 @@ describe 'user submits comparison', js:true do
       expect(page).to have_content "You must choose at least one criteria for your comparison."
     end
 
-    it 'user can change search radius' do
-
-    end
+    # it 'user can change search radius' do
+    # end
   end
 
   context 'with invalid first_address' do
     
-    it 'empty first_address field' do
-      fill_in :first_address, with: " " 
+    it 'empty address fields' do
       click_on 'COMPARE'
       expect(current_path).to eq comparisons_new_path
       expect(page).to have_content "Address cannot be blank."
