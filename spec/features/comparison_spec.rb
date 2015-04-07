@@ -58,7 +58,6 @@ describe 'user submits comparison', js:true do
     end
 
     it 'user can change search radius' do
-
     end
   end
 
@@ -66,15 +65,18 @@ describe 'user submits comparison', js:true do
     
     it 'empty first_address field' do
       fill_in :first_address, with: " " 
+      page.click_on 'General'
+      find('label', text: 'PARKS').click
       click_on 'COMPARE'
       expect(current_path).to eq comparisons_new_path
-      expect(page).to have_content "Address cannot be blank."
     end
 
     it 'address not in Denver' do
-      fill_in 'first_address', with: "205 Dubose Dr Kinston, NC"
+      fill_in 'first_address', with: "1550 Blake St. Denver, CO"
+      fill_in 'second_address', with: "205 Dubose Dr Kinston, NC"
+      page.click_on 'General'
+      find('label', text: 'SAFETY').click
       click_on 'COMPARE'
-      expect(current_path).to eq comparisons_new_path
       expect(page).to have_content "City must be located in Denver."
     end
   end

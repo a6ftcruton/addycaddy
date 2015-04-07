@@ -4,12 +4,6 @@ include OmniauthSupport
 
 RSpec.describe 'twitter omniauth', :type=> :request do
 
-#  it 'logs in successfully' do
-#    set_omniauth()
-#    get 'users/auth/twitter/callback'
-#    expect(response.status).to eq(302)
-#  end
-#
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
